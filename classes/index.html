@@ -581,6 +581,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee6Entity9SetParentE6Entity"><code class="docutils literal notranslate"><span class="pre">Entity::SetParent()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMeshE"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateQuadEv"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateQuad()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateCube()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh12CreateSphereEffiib"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateSphere()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreatePlane()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh14CreateCylinderEfffiibb"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateCylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateConeEffiib"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateCone()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh11CreateTorusEffii"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateTorus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13PrimitiveMesh13CreateCapsuleEffii"><code class="docutils literal notranslate"><span class="pre">PrimitiveMesh::CreateCapsule()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee5SceneE"><code class="docutils literal notranslate"><span class="pre">Scene</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee5Scene5SceneEv"><code class="docutils literal notranslate"><span class="pre">Scene::Scene()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee5SceneD0Ev"><code class="docutils literal notranslate"><span class="pre">Scene::~Scene()</span></code></a></li>
@@ -4705,6 +4716,164 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>entity</strong> – The parent entity. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMeshE">
+<span id="_CPPv3N6Coffee13PrimitiveMeshE"></span><span id="_CPPv2N6Coffee13PrimitiveMeshE"></span><span id="Coffee::PrimitiveMesh"></span><span class="target" id="classCoffee_1_1PrimitiveMesh"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrimitiveMesh</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMeshE" title="Link to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;PrimitiveMesh.h&gt;</em></div>
+<p>Class representing different types of primitive meshes. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh10CreateQuadEv">
+<span id="_CPPv3N6Coffee13PrimitiveMesh10CreateQuadEv"></span><span id="_CPPv2N6Coffee13PrimitiveMesh10CreateQuadEv"></span><span id="Coffee::PrimitiveMesh::CreateQuad"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a499c4cb07e6e6d83f913cf180d77df99"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateQuad</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateQuadEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a quad mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A reference to the created quad mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii">
+<span id="_CPPv3N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii"></span><span id="_CPPv2N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii"></span><span id="Coffee::PrimitiveMesh::CreateCube__glm::vec3CR.i.i.i"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a83ff993845d5fb8507b26e8b8525f9a0"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCube</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">size</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">}</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subdivideW</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subdidiveH</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subdivideD</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a cube mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – The size of the cube. </p></li>
+<li><p><strong>subdivideW</strong> – Number of subdivisions along the width. </p></li>
+<li><p><strong>subdivideH</strong> – Number of subdivisions along the height. </p></li>
+<li><p><strong>subdivideD</strong> – Number of subdivisions along the depth. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created cube mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh12CreateSphereEffiib">
+<span id="_CPPv3N6Coffee13PrimitiveMesh12CreateSphereEffiib"></span><span id="_CPPv2N6Coffee13PrimitiveMesh12CreateSphereEffiib"></span><span id="Coffee::PrimitiveMesh::CreateSphere__float.float.i.i.b"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a02daf6d913d8f659ed9077ed3fc7ca23"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateSphere</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.5f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radialSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">isHemiSphere</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh12CreateSphereEffiib" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a sphere mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> – The radius of the sphere. </p></li>
+<li><p><strong>height</strong> – The height of the sphere. </p></li>
+<li><p><strong>radialSegments</strong> – Number of radial segments. </p></li>
+<li><p><strong>rings</strong> – Number of rings. </p></li>
+<li><p><strong>isHemiSphere</strong> – Whether the sphere is a hemisphere. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created sphere mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E">
+<span id="_CPPv3N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"></span><span id="_CPPv2N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"></span><span id="Coffee::PrimitiveMesh::CreatePlane__glm::vec2CR.glm::vec3CR"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1abafd78af69af75eb434ca11cb6d75378"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreatePlane</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec2</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">normal</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">}</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a plane mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – The size of the plane. </p></li>
+<li><p><strong>normal</strong> – The normal vector of the plane. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created plane mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh14CreateCylinderEfffiibb">
+<span id="_CPPv3N6Coffee13PrimitiveMesh14CreateCylinderEfffiibb"></span><span id="_CPPv2N6Coffee13PrimitiveMesh14CreateCylinderEfffiibb"></span><span id="Coffee::PrimitiveMesh::CreateCylinder__float.float.float.i.i.b.b"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a8c7b6ea11aab8451bcacc4dce5b4c441"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCylinder</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">topRadius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.5f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bottomRadius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.5f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radialSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">capTop</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">capBottom</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh14CreateCylinderEfffiibb" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a cylinder mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topRadius</strong> – The radius of the top of the cylinder. </p></li>
+<li><p><strong>bottomRadius</strong> – The radius of the bottom of the cylinder. </p></li>
+<li><p><strong>height</strong> – The height of the cylinder. </p></li>
+<li><p><strong>radialSegments</strong> – Number of radial segments. </p></li>
+<li><p><strong>rings</strong> – Number of rings. </p></li>
+<li><p><strong>capTop</strong> – Whether to cap the top of the cylinder. </p></li>
+<li><p><strong>capBottom</strong> – Whether to cap the bottom of the cylinder. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created cylinder mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh10CreateConeEffiib">
+<span id="_CPPv3N6Coffee13PrimitiveMesh10CreateConeEffiib"></span><span id="_CPPv2N6Coffee13PrimitiveMesh10CreateConeEffiib"></span><span id="Coffee::PrimitiveMesh::CreateCone__float.float.i.i.b"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a4e23d1263ea24b4f2fa1f5211e4d11b6"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.5f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radialSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cap</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateConeEffiib" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a cone mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> – The radius of the base of the cone. </p></li>
+<li><p><strong>height</strong> – The height of the cone. </p></li>
+<li><p><strong>radialSegments</strong> – Number of radial segments. </p></li>
+<li><p><strong>rings</strong> – Number of rings. </p></li>
+<li><p><strong>cap</strong> – Whether to cap the base of the cone. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created cone mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh11CreateTorusEffii">
+<span id="_CPPv3N6Coffee13PrimitiveMesh11CreateTorusEffii"></span><span id="_CPPv2N6Coffee13PrimitiveMesh11CreateTorusEffii"></span><span id="Coffee::PrimitiveMesh::CreateTorus__float.float.i.i"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a7c72f4f6ec4b80ef68ce09b19c9abf7f"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateTorus</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">innerRadius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.5f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">outerRadius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ringSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh11CreateTorusEffii" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a torus mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>innerRadius</strong> – The inner radius of the torus. </p></li>
+<li><p><strong>outerRadius</strong> – The outer radius of the torus. </p></li>
+<li><p><strong>rings</strong> – Number of rings. </p></li>
+<li><p><strong>ringSegments</strong> – Number of ring segments. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created torus mesh. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh13CreateCapsuleEffii">
+<span id="_CPPv3N6Coffee13PrimitiveMesh13CreateCapsuleEffii"></span><span id="_CPPv2N6Coffee13PrimitiveMesh13CreateCapsuleEffii"></span><span id="Coffee::PrimitiveMesh::CreateCapsule__float.float.i.i"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a496a180d839d132da62e0f15d9262bab"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCapsule</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radialSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh13CreateCapsuleEffii" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a capsule mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>radius</strong> – The radius of the capsule. </p></li>
+<li><p><strong>height</strong> – The height of the capsule. </p></li>
+<li><p><strong>radialSegments</strong> – Number of radial segments. </p></li>
+<li><p><strong>rings</strong> – Number of rings. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created capsule mesh. </p>
 </dd>
 </dl>
 </dd></dl>
