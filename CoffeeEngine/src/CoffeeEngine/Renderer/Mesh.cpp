@@ -16,6 +16,9 @@ namespace Coffee {
         m_IndexBuffer = IndexBuffer::Create(m_Indices.data(), m_Indices.size());
         m_VertexBuffer = VertexBuffer::Create((float*)m_Vertices.data(), m_Vertices.size() * sizeof(Vertex));
 
+        m_Indices.clear();
+        m_Vertices.clear();
+
         BufferLayout layout = {
             {ShaderDataType::Vec3, "a_Position"},
             {ShaderDataType::Vec2, "a_TexCoords"},

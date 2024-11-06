@@ -63,13 +63,13 @@ namespace Coffee {
     {
         ZoneScoped;
 
-        // Update Texture Flags
+/*         // Update Texture Flags
         m_MaterialTextureFlags.hasAlbedo = (m_MaterialTextures.albedo != nullptr);
         m_MaterialTextureFlags.hasNormal = (m_MaterialTextures.normal != nullptr);
         m_MaterialTextureFlags.hasMetallic = (m_MaterialTextures.metallic != nullptr);
         m_MaterialTextureFlags.hasRoughness = (m_MaterialTextures.roughness != nullptr);
         m_MaterialTextureFlags.hasAO = (m_MaterialTextures.ao != nullptr);
-        m_MaterialTextureFlags.hasEmissive = (m_MaterialTextures.emissive != nullptr);
+        m_MaterialTextureFlags.hasEmissive = (m_MaterialTextures.emissive != nullptr); */
 
         m_Shader->Bind();
 
@@ -81,7 +81,7 @@ namespace Coffee {
         if(m_MaterialTextureFlags.hasAO)m_MaterialTextures.ao->Bind(4);
         if(m_MaterialTextureFlags.hasEmissive)m_MaterialTextures.emissive->Bind(5);
 
-        // Set Material Properties
+/*         // Set Material Properties
         m_Shader->setVec4("material.color", m_MaterialProperties.color);
         m_Shader->setFloat("material.metallic", m_MaterialProperties.metallic);
         m_Shader->setFloat("material.roughness", m_MaterialProperties.roughness);
@@ -94,6 +94,6 @@ namespace Coffee {
         m_Shader->setInt("material.hasMetallic", m_MaterialTextureFlags.hasMetallic);
         m_Shader->setInt("material.hasRoughness", m_MaterialTextureFlags.hasRoughness);
         m_Shader->setInt("material.hasAO", m_MaterialTextureFlags.hasAO);
-        m_Shader->setInt("material.hasEmissive", m_MaterialTextureFlags.hasEmissive);
+        m_Shader->setInt("material.hasEmissive", m_MaterialTextureFlags.hasEmissive); */
     }
 }

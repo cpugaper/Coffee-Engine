@@ -206,10 +206,10 @@ namespace Coffee {
 
     void Renderer::Submit(const Ref<Material>& material, const Ref<Mesh>& mesh, const glm::mat4& transform, uint32_t entityID)
     {
-        material->Use();
-        Ref<Shader> shader = material->GetShader();
+        //material->Use(); //this function is the origin of the massive memory increasing when drawing the sponza scene
+        const Ref<Shader>& shader = material->GetShader();
 
-        Renderer::Submit(shader, mesh->GetVertexArray(), transform, entityID);
+        //Renderer::Submit(shader, mesh->GetVertexArray(), transform, entityID);
 
         s_Stats.VertexCount += mesh->GetVertices().size();
         s_Stats.IndexCount += mesh->GetIndices().size();

@@ -179,7 +179,7 @@ namespace Coffee {
             construct(properties.Width, properties.Height, properties.Format);
 
             data(construct->m_Data, construct->m_Width, construct->m_Height,
-                 cereal::base_class<Resource>(construct.ptr()));
+                 cereal::base_class<Resource>(construct.ptr())); //Here there is a memory leak (revise i saw it in Heaptrack)
             construct->m_Properties = properties;
             construct->SetData(construct->m_Data.data(), construct->m_Data.size());
         }

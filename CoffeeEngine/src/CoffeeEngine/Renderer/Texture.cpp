@@ -134,6 +134,8 @@ namespace Coffee {
             glTextureSubImage2D(m_textureID, 0, 0, 0, m_Width, m_Height, format, GL_UNSIGNED_BYTE, m_Data.data());
 
             glGenerateTextureMipmap(m_textureID);
+
+            m_Data.clear();
         }
         else
         {

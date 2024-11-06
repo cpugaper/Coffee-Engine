@@ -160,8 +160,8 @@ namespace Coffee {
             auto& transformComponent = view.get<TransformComponent>(entity);
             auto materialComponent = m_Registry.try_get<MaterialComponent>(entity);
 
-            Ref<Mesh> mesh = meshComponent.GetMesh();
-            Ref<Material> material = (materialComponent and materialComponent->material) ? materialComponent->material : missingMaterial;
+            const Ref<Mesh>& mesh = meshComponent.GetMesh();
+            const Ref<Material>& material = (materialComponent and materialComponent->material) ? materialComponent->material : missingMaterial;
             
             Renderer::Submit(material, mesh, transformComponent.GetWorldTransform(), (uint32_t)entity);
         }
@@ -178,7 +178,7 @@ namespace Coffee {
             lightComponent.Position = transformComponent.GetWorldTransform()[3];
             lightComponent.Direction = glm::normalize(glm::vec3(-transformComponent.GetWorldTransform()[1]));
 
-            Renderer::Submit(lightComponent);
+            //Renderer::Submit(lightComponent);
         }
 
         Renderer::EndScene();

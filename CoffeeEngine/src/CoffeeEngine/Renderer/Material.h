@@ -102,7 +102,7 @@ namespace Coffee {
          * @brief Gets the shader associated with the material.
          * @return A reference to the shader.
          */
-        Ref<Shader> GetShader() { return m_Shader; }
+        const Ref<Shader>& GetShader() { return m_Shader; }
 
         MaterialTextures& GetMaterialTextures() { return m_MaterialTextures; }
         MaterialProperties& GetMaterialProperties() { return m_MaterialProperties; }

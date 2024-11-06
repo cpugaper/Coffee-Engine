@@ -147,6 +147,9 @@ namespace Coffee {
         resultMesh->SetMaterial(meshMaterial);
         resultMesh->SetAABB(aabb);
 
+        indices.clear();
+        vertices.clear();
+
         return resultMesh;
     }
 
