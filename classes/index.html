@@ -8,13 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Core &mdash; Coffee Engine 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=7ab3649f" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=38b66d78"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -95,6 +95,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee3Log15GetClientLoggerEv"><code class="docutils literal notranslate"><span class="pre">Log::GetClientLogger()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee9StopwatchE"><code class="docutils literal notranslate"><span class="pre">Stopwatch</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee9Stopwatch9StopwatchEv"><code class="docutils literal notranslate"><span class="pre">Stopwatch::Stopwatch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee9Stopwatch5StartEv"><code class="docutils literal notranslate"><span class="pre">Stopwatch::Start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee9Stopwatch4StopEv"><code class="docutils literal notranslate"><span class="pre">Stopwatch::Stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee9Stopwatch5ResetEv"><code class="docutils literal notranslate"><span class="pre">Stopwatch::Reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee9Stopwatch14GetElapsedTimeEv"><code class="docutils literal notranslate"><span class="pre">Stopwatch::GetElapsedTime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee9Stopwatch21GetPreciseElapsedTimeEv"><code class="docutils literal notranslate"><span class="pre">Stopwatch::GetPreciseElapsedTime()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee10SystemInfoE"><code class="docutils literal notranslate"><span class="pre">SystemInfo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee10SystemInfo29GetPhysicalProcessorCountImplEv"><code class="docutils literal notranslate"><span class="pre">SystemInfo::GetPhysicalProcessorCountImpl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee10SystemInfo22GetAvailableMemoryImplEv"><code class="docutils literal notranslate"><span class="pre">SystemInfo::GetAvailableMemoryImpl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee10SystemInfo17GetUsedMemoryImplEv"><code class="docutils literal notranslate"><span class="pre">SystemInfo::GetUsedMemoryImpl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee10SystemInfo25GetProcessMemoryUsageImplEv"><code class="docutils literal notranslate"><span class="pre">SystemInfo::GetProcessMemoryUsageImpl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee5TimerE"><code class="docutils literal notranslate"><span class="pre">Timer</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee11WindowPropsE"><code class="docutils literal notranslate"><span class="pre">WindowProps</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee11WindowProps11WindowPropsERKNSt6stringE8uint32_t8uint32_t"><code class="docutils literal notranslate"><span class="pre">WindowProps::WindowProps()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee11WindowProps5TitleE"><code class="docutils literal notranslate"><span class="pre">WindowProps::Title</span></code></a></li>
@@ -127,6 +144,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType11WindowFocusE"><code class="docutils literal notranslate"><span class="pre">EventType::WindowFocus</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType15WindowLostFocusE"><code class="docutils literal notranslate"><span class="pre">EventType::WindowLostFocus</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType11WindowMovedE"><code class="docutils literal notranslate"><span class="pre">EventType::WindowMoved</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType8FileDropE"><code class="docutils literal notranslate"><span class="pre">EventType::FileDrop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType7AppTickE"><code class="docutils literal notranslate"><span class="pre">EventType::AppTick</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType9AppUpdateE"><code class="docutils literal notranslate"><span class="pre">EventType::AppUpdate</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N9EventType9AppRenderE"><code class="docutils literal notranslate"><span class="pre">EventType::AppRender</span></code></a></li>
@@ -156,6 +174,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee16WindowCloseEventE"><code class="docutils literal notranslate"><span class="pre">WindowCloseEvent</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee13FileDropEventE"><code class="docutils literal notranslate"><span class="pre">FileDropEvent</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent12GetTimestampEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::GetTimestamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent11GetWindowIDEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::GetWindowID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent4GetXEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::GetX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent4GetYEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::GetY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent9GetSourceEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::GetSource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent7GetFileEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::GetFile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee13FileDropEvent8ToStringEv"><code class="docutils literal notranslate"><span class="pre">FileDropEvent::ToString()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee12AppTickEventE"><code class="docutils literal notranslate"><span class="pre">AppTickEvent</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee14AppUpdateEventE"><code class="docutils literal notranslate"><span class="pre">AppUpdateEvent</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee14AppRenderEventE"><code class="docutils literal notranslate"><span class="pre">AppRenderEvent</span></code></a></li>
@@ -242,12 +270,13 @@
 <li class="toctree-l1"><a class="reference internal" href="#project">Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee7ProjectE"><code class="docutils literal notranslate"><span class="pre">Project</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4I0EN6Coffee7Project9serializeEvR7Archive"><code class="docutils literal notranslate"><span class="pre">Project::serialize()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project3NewEv"><code class="docutils literal notranslate"><span class="pre">Project::New()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project3NewERKNSt10filesystem4pathE"><code class="docutils literal notranslate"><span class="pre">Project::New()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project4LoadERKNSt10filesystem4pathE"><code class="docutils literal notranslate"><span class="pre">Project::Load()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project10SaveActiveERKNSt10filesystem4pathE"><code class="docutils literal notranslate"><span class="pre">Project::SaveActive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project10SaveActiveEv"><code class="docutils literal notranslate"><span class="pre">Project::SaveActive()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project9GetActiveEv"><code class="docutils literal notranslate"><span class="pre">Project::GetActive()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project19GetProjectDirectoryEv"><code class="docutils literal notranslate"><span class="pre">Project::GetProjectDirectory()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project14GetProjectNameEv"><code class="docutils literal notranslate"><span class="pre">Project::GetProjectName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Project17GetCacheDirectoryEv"><code class="docutils literal notranslate"><span class="pre">Project::GetCacheDirectory()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -278,30 +307,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv418ShaderDataTypeSize14ShaderDataType"><code class="docutils literal notranslate"><span class="pre">ShaderDataTypeSize()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv47TextureRK17TextureProperties"><code class="docutils literal notranslate"><span class="pre">Texture()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv47Texture8uint32_t8uint32_t11ImageFormat"><code class="docutils literal notranslate"><span class="pre">Texture()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv47TextureRKNSt10filesystem4pathEb"><code class="docutils literal notranslate"><span class="pre">Texture()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4D0v"><code class="docutils literal notranslate"><span class="pre">~Texture()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44Bind8uint32_t"><code class="docutils literal notranslate"><span class="pre">Bind()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Resize8uint32_t8uint32_t"><code class="docutils literal notranslate"><span class="pre">Resize()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv47GetSizev"><code class="docutils literal notranslate"><span class="pre">GetSize()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv48GetWidthv"><code class="docutils literal notranslate"><span class="pre">GetWidth()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv49GetHeightv"><code class="docutils literal notranslate"><span class="pre">GetHeight()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv45GetIDv"><code class="docutils literal notranslate"><span class="pre">GetID()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv45ClearN3glm4vec4E"><code class="docutils literal notranslate"><span class="pre">Clear()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv47SetDataPv8uint32_t"><code class="docutils literal notranslate"><span class="pre">SetData()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv414GetImageFormatv"><code class="docutils literal notranslate"><span class="pre">GetImageFormat()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44LoadRKNSt10filesystem4pathEb"><code class="docutils literal notranslate"><span class="pre">Load()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Create8uint32_t8uint32_t11ImageFormat"><code class="docutils literal notranslate"><span class="pre">Create()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Format"><code class="docutils literal notranslate"><span class="pre">Format</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv45Width"><code class="docutils literal notranslate"><span class="pre">Width</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Height"><code class="docutils literal notranslate"><span class="pre">Height</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv415GenerateMipmaps"><code class="docutils literal notranslate"><span class="pre">GenerateMipmaps</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44srgb"><code class="docutils literal notranslate"><span class="pre">srgb</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv412m_Properties"><code class="docutils literal notranslate"><span class="pre">m_Properties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv411m_textureID"><code class="docutils literal notranslate"><span class="pre">m_textureID</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv47m_Width"><code class="docutils literal notranslate"><span class="pre">m_Width</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv48m_Height"><code class="docutils literal notranslate"><span class="pre">m_Height</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee15BufferAttributeE"><code class="docutils literal notranslate"><span class="pre">BufferAttribute</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee15BufferAttribute15BufferAttributeEv"><code class="docutils literal notranslate"><span class="pre">BufferAttribute::BufferAttribute()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee15BufferAttribute15BufferAttributeE14ShaderDataTypeRKNSt6stringEb"><code class="docutils literal notranslate"><span class="pre">BufferAttribute::BufferAttribute()</span></code></a></li>
@@ -365,9 +370,15 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCameraE"><code class="docutils literal notranslate"><span class="pre">EditorCamera</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera11CameraStateE"><code class="docutils literal notranslate"><span class="pre">EditorCamera::CameraState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera11CameraState4NONEE"><code class="docutils literal notranslate"><span class="pre">EditorCamera::CameraState::NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera11CameraState5ORBITE"><code class="docutils literal notranslate"><span class="pre">EditorCamera::CameraState::ORBIT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera11CameraState3FLYE"><code class="docutils literal notranslate"><span class="pre">EditorCamera::CameraState::FLY</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera12EditorCameraEv"><code class="docutils literal notranslate"><span class="pre">EditorCamera::EditorCamera()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera12EditorCameraEf14ProjectionTypefff"><code class="docutils literal notranslate"><span class="pre">EditorCamera::EditorCamera()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera8OnUpdateEv"><code class="docutils literal notranslate"><span class="pre">EditorCamera::OnUpdate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera8OnUpdateEf"><code class="docutils literal notranslate"><span class="pre">EditorCamera::OnUpdate()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera7OnEventER5Event"><code class="docutils literal notranslate"><span class="pre">EditorCamera::OnEvent()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera15SetViewportSizeEff"><code class="docutils literal notranslate"><span class="pre">EditorCamera::SetViewportSize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera13SetFocusPointEN3glm4vec3E"><code class="docutils literal notranslate"><span class="pre">EditorCamera::SetFocusPoint()</span></code></a></li>
@@ -377,6 +388,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee12EditorCamera19GetForwardDirectionEv"><code class="docutils literal notranslate"><span class="pre">EditorCamera::GetForwardDirection()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee12EditorCamera11GetPositionEv"><code class="docutils literal notranslate"><span class="pre">EditorCamera::GetPosition()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee12EditorCamera14GetOrientationEv"><code class="docutils literal notranslate"><span class="pre">EditorCamera::GetOrientation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee12EditorCamera8GetStateEv"><code class="docutils literal notranslate"><span class="pre">EditorCamera::GetState()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee11FramebufferE"><code class="docutils literal notranslate"><span class="pre">Framebuffer</span></code></a><ul>
@@ -405,7 +417,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee15GraphicsContext6CreateEP10SDL_Window"><code class="docutils literal notranslate"><span class="pre">GraphicsContext::Create()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialPropertiesE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee22MaterialRenderSettingsE"><code class="docutils literal notranslate"><span class="pre">MaterialRenderSettings</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialPropertiesE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialProperties5colorE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties::color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialProperties8metallicE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties::metallic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialProperties9roughnessE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties::roughness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialProperties2aoE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties::ao</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee18MaterialProperties8emissiveE"><code class="docutils literal notranslate"><span class="pre">MaterialProperties::emissive</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee16MaterialTexturesE"><code class="docutils literal notranslate"><span class="pre">MaterialTextures</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee16MaterialTextures6albedoE"><code class="docutils literal notranslate"><span class="pre">MaterialTextures::albedo</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee16MaterialTextures6normalE"><code class="docutils literal notranslate"><span class="pre">MaterialTextures::normal</span></code></a></li>
@@ -415,6 +435,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee16MaterialTextures8emissiveE"><code class="docutils literal notranslate"><span class="pre">MaterialTextures::emissive</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee20MaterialTextureFlagsE"><code class="docutils literal notranslate"><span class="pre">MaterialTextureFlags</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee8MaterialE"><code class="docutils literal notranslate"><span class="pre">Material</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee8Material8MaterialEv"><code class="docutils literal notranslate"><span class="pre">Material::Material()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee8Material8MaterialE3RefI6ShaderE"><code class="docutils literal notranslate"><span class="pre">Material::Material()</span></code></a></li>
@@ -433,6 +454,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee6Vertex9BitangentE"><code class="docutils literal notranslate"><span class="pre">Vertex::Bitangent</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee4AABBE"><code class="docutils literal notranslate"><span class="pre">AABB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee3OBBE"><code class="docutils literal notranslate"><span class="pre">OBB</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee4MeshE"><code class="docutils literal notranslate"><span class="pre">Mesh</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee4Mesh4MeshERKNSt6vectorI8uint32_tEERKNSt6vectorI6VertexEE"><code class="docutils literal notranslate"><span class="pre">Mesh::Mesh()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee4Mesh14GetVertexArrayEv"><code class="docutils literal notranslate"><span class="pre">Mesh::GetVertexArray()</span></code></a></li>
@@ -441,6 +464,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee4Mesh7SetNameERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Mesh::SetName()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee4Mesh7GetNameEv"><code class="docutils literal notranslate"><span class="pre">Mesh::GetName()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee4Mesh11SetMaterialER3RefI8MaterialE"><code class="docutils literal notranslate"><span class="pre">Mesh::SetMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee4Mesh7SetAABBEK4AABB"><code class="docutils literal notranslate"><span class="pre">Mesh::SetAABB()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee4Mesh7GetAABBEv"><code class="docutils literal notranslate"><span class="pre">Mesh::GetAABB()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee4Mesh11GetMaterialEv"><code class="docutils literal notranslate"><span class="pre">Mesh::GetMaterial()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee4Mesh11GetVerticesEv"><code class="docutils literal notranslate"><span class="pre">Mesh::GetVertices()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK6Coffee4Mesh10GetIndicesEv"><code class="docutils literal notranslate"><span class="pre">Mesh::GetIndices()</span></code></a></li>
@@ -540,8 +565,29 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee6Shader6CreateERKNSt6stringERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Shader::Create()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee17TexturePropertiesE"><code class="docutils literal notranslate"><span class="pre">TextureProperties</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee7TextureE"><code class="docutils literal notranslate"><span class="pre">Texture</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee17TexturePropertiesE"><code class="docutils literal notranslate"><span class="pre">TextureProperties</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee17TextureProperties6FormatE"><code class="docutils literal notranslate"><span class="pre">TextureProperties::Format</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee17TextureProperties6HeightE"><code class="docutils literal notranslate"><span class="pre">TextureProperties::Height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee17TextureProperties15GenerateMipmapsE"><code class="docutils literal notranslate"><span class="pre">TextureProperties::GenerateMipmaps</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee17TextureProperties4srgbE"><code class="docutils literal notranslate"><span class="pre">TextureProperties::srgb</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee7TextureE"><code class="docutils literal notranslate"><span class="pre">Texture</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture7TextureERK17TextureProperties"><code class="docutils literal notranslate"><span class="pre">Texture::Texture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture7TextureE8uint32_t8uint32_t11ImageFormat"><code class="docutils literal notranslate"><span class="pre">Texture::Texture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture7TextureERKNSt10filesystem4pathEb"><code class="docutils literal notranslate"><span class="pre">Texture::Texture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7TextureD0Ev"><code class="docutils literal notranslate"><span class="pre">Texture::~Texture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture4BindE8uint32_t"><code class="docutils literal notranslate"><span class="pre">Texture::Bind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture6ResizeE8uint32_t8uint32_t"><code class="docutils literal notranslate"><span class="pre">Texture::Resize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture7GetSizeEv"><code class="docutils literal notranslate"><span class="pre">Texture::GetSize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture8GetWidthEv"><code class="docutils literal notranslate"><span class="pre">Texture::GetWidth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture9GetHeightEv"><code class="docutils literal notranslate"><span class="pre">Texture::GetHeight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture5GetIDEv"><code class="docutils literal notranslate"><span class="pre">Texture::GetID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture14GetImageFormatEv"><code class="docutils literal notranslate"><span class="pre">Texture::GetImageFormat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture4LoadERKNSt10filesystem4pathEb"><code class="docutils literal notranslate"><span class="pre">Texture::Load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee7Texture6CreateE8uint32_t8uint32_t11ImageFormat"><code class="docutils literal notranslate"><span class="pre">Texture::Create()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N6Coffee13UniformBufferE"><code class="docutils literal notranslate"><span class="pre">UniformBuffer</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13UniformBuffer13UniformBufferE8uint32_t8uint32_t"><code class="docutils literal notranslate"><span class="pre">UniformBuffer::UniformBuffer()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N6Coffee13UniformBufferD0Ev"><code class="docutils literal notranslate"><span class="pre">UniformBuffer::~UniformBuffer()</span></code></a></li>
@@ -662,6 +708,7 @@
 <dt class="sig sig-object cpp">
 <span class="target" id="group__core"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">core</span></span></dt>
 <dd><p>Core components of the CoffeeEngine. </p>
+<p>The <a class="reference internal" href="#classCoffee_1_1SystemInfo"><span class="std std-ref">SystemInfo</span></a> class provides information about the Operating System.</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -985,6 +1032,126 @@
 </div>
 </dd></dl>
 
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee9StopwatchE">
+<span id="_CPPv3N6Coffee9StopwatchE"></span><span id="_CPPv2N6Coffee9StopwatchE"></span><span id="Coffee::Stopwatch"></span><span class="target" id="classCoffee_1_1Stopwatch"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stopwatch</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee9StopwatchE" title="Link to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;Stopwatch.h&gt;</em></div>
+<p>A class to measure elapsed time. </p>
+<p>The <a class="reference internal" href="#classCoffee_1_1Stopwatch"><span class="std std-ref">Stopwatch</span></a> class provides functionality to start, stop, reset, and retrieve the elapsed time. It supports both regular and high-precision timing. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee9Stopwatch9StopwatchEv">
+<span id="_CPPv3N6Coffee9Stopwatch9StopwatchEv"></span><span id="_CPPv2N6Coffee9Stopwatch9StopwatchEv"></span><span id="Coffee::Stopwatch::Stopwatch"></span><span class="target" id="classCoffee_1_1Stopwatch_1a2355216ef4c731dfc07a3ba4d05e0804"></span><span class="sig-name descname"><span class="n"><span class="pre">Stopwatch</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee9Stopwatch9StopwatchEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a new <a class="reference internal" href="#classCoffee_1_1Stopwatch"><span class="std std-ref">Stopwatch</span></a> object. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee9Stopwatch5StartEv">
+<span id="_CPPv3N6Coffee9Stopwatch5StartEv"></span><span id="_CPPv2N6Coffee9Stopwatch5StartEv"></span><span id="Coffee::Stopwatch::Start"></span><span class="target" id="classCoffee_1_1Stopwatch_1aca2b8351a801eae36819567f7d63a63f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Start</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee9Stopwatch5StartEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Starts the stopwatch. </p>
+<p>If the stopwatch is already running, this method has no effect. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee9Stopwatch4StopEv">
+<span id="_CPPv3N6Coffee9Stopwatch4StopEv"></span><span id="_CPPv2N6Coffee9Stopwatch4StopEv"></span><span id="Coffee::Stopwatch::Stop"></span><span class="target" id="classCoffee_1_1Stopwatch_1a8429425f71d6def9965a02f84ab6d718"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee9Stopwatch4StopEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Stops the stopwatch. </p>
+<p>If the stopwatch is not running, this method has no effect. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee9Stopwatch5ResetEv">
+<span id="_CPPv3N6Coffee9Stopwatch5ResetEv"></span><span id="_CPPv2N6Coffee9Stopwatch5ResetEv"></span><span id="Coffee::Stopwatch::Reset"></span><span class="target" id="classCoffee_1_1Stopwatch_1a366b3516d7fb46f073b7857ccf89855e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee9Stopwatch5ResetEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Resets the stopwatch. </p>
+<p>This method stops the stopwatch and resets the elapsed time to zero. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee9Stopwatch14GetElapsedTimeEv">
+<span id="_CPPv3NK6Coffee9Stopwatch14GetElapsedTimeEv"></span><span id="_CPPv2NK6Coffee9Stopwatch14GetElapsedTimeEv"></span><span id="Coffee::Stopwatch::GetElapsedTimeC"></span><span class="target" id="classCoffee_1_1Stopwatch_1ac793b8ee522fc21f0aa73d62789c9b1c"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetElapsedTime</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee9Stopwatch14GetElapsedTimeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the elapsed time in seconds. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The elapsed time in seconds. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee9Stopwatch21GetPreciseElapsedTimeEv">
+<span id="_CPPv3NK6Coffee9Stopwatch21GetPreciseElapsedTimeEv"></span><span id="_CPPv2NK6Coffee9Stopwatch21GetPreciseElapsedTimeEv"></span><span id="Coffee::Stopwatch::GetPreciseElapsedTimeC"></span><span class="target" id="classCoffee_1_1Stopwatch_1ab7f83ba85e2e78fea0fda42c0b00e992"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetPreciseElapsedTime</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee9Stopwatch21GetPreciseElapsedTimeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the precise elapsed time in seconds. </p>
+<p>This method uses SDL_GetPerformanceCounter for higher precision.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The precise elapsed time in seconds. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee10SystemInfoE">
+<span id="_CPPv3N6Coffee10SystemInfoE"></span><span id="_CPPv2N6Coffee10SystemInfoE"></span><span id="Coffee::SystemInfo"></span><span class="target" id="classCoffee_1_1SystemInfo"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SystemInfo</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee10SystemInfoE" title="Link to this definition"></a><br /></dt>
+<dd><p>Subclassed by Coffee::LinuxSystemInfo, Coffee::WindowsSystemInfo</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee10SystemInfo29GetPhysicalProcessorCountImplEv">
+<span id="_CPPv3NK6Coffee10SystemInfo29GetPhysicalProcessorCountImplEv"></span><span id="_CPPv2NK6Coffee10SystemInfo29GetPhysicalProcessorCountImplEv"></span><span id="Coffee::SystemInfo::GetPhysicalProcessorCountImplC"></span><span class="target" id="classCoffee_1_1SystemInfo_1a8fbfb00409d7023589eb350bbdbed6ef"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetPhysicalProcessorCountImpl</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6Coffee10SystemInfo29GetPhysicalProcessorCountImplEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the number of physical processors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of physical processors. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee10SystemInfo22GetAvailableMemoryImplEv">
+<span id="_CPPv3NK6Coffee10SystemInfo22GetAvailableMemoryImplEv"></span><span id="_CPPv2NK6Coffee10SystemInfo22GetAvailableMemoryImplEv"></span><span id="Coffee::SystemInfo::GetAvailableMemoryImplC"></span><span class="target" id="classCoffee_1_1SystemInfo_1a2a8607e4773ddeebf7218e31866b6012"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAvailableMemoryImpl</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6Coffee10SystemInfo22GetAvailableMemoryImplEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the amount of available memory in the system. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The amount of available memory in the system. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee10SystemInfo17GetUsedMemoryImplEv">
+<span id="_CPPv3NK6Coffee10SystemInfo17GetUsedMemoryImplEv"></span><span id="_CPPv2NK6Coffee10SystemInfo17GetUsedMemoryImplEv"></span><span id="Coffee::SystemInfo::GetUsedMemoryImplC"></span><span class="target" id="classCoffee_1_1SystemInfo_1ad4c617478723b2be0c8b0633fca677cf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetUsedMemoryImpl</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6Coffee10SystemInfo17GetUsedMemoryImplEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the amount of memory used in the system. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The amount of memory used in the system. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee10SystemInfo25GetProcessMemoryUsageImplEv">
+<span id="_CPPv3NK6Coffee10SystemInfo25GetProcessMemoryUsageImplEv"></span><span id="_CPPv2NK6Coffee10SystemInfo25GetProcessMemoryUsageImplEv"></span><span id="Coffee::SystemInfo::GetProcessMemoryUsageImplC"></span><span class="target" id="classCoffee_1_1SystemInfo_1ab6db824b7b1a997be82982b4872caa05"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetProcessMemoryUsageImpl</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6Coffee10SystemInfo25GetProcessMemoryUsageImplEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the amount of memory used by the process. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The amount of memory used by the process. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee5TimerE">
+<span id="_CPPv3N6Coffee5TimerE"></span><span id="_CPPv2N6Coffee5TimerE"></span><span id="Coffee::Timer"></span><span class="target" id="classCoffee_1_1Timer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Timer</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee5TimerE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee11WindowPropsE">
 <span id="_CPPv3N6Coffee11WindowPropsE"></span><span id="_CPPv2N6Coffee11WindowPropsE"></span><span id="Coffee::WindowProps"></span><span class="target" id="structCoffee_1_1WindowProps"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WindowProps</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee11WindowPropsE" title="Link to this definition"></a><br /></dt>
@@ -1232,6 +1399,11 @@
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9EventType8FileDropE">
+<span id="_CPPv3N9EventType8FileDropE"></span><span id="_CPPv2N9EventType8FileDropE"></span><span class="target" id="group__events_1ggac29f25d450dfa643908e541fcb200401ae03ae47c554bb06e5a8a43295fc71578"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FileDrop</span></span></span><a class="headerlink" href="#_CPPv4N9EventType8FileDropE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N9EventType7AppTickE">
 <span id="_CPPv3N9EventType7AppTickE"></span><span id="_CPPv2N9EventType7AppTickE"></span><span class="target" id="group__events_1ggac29f25d450dfa643908e541fcb200401a559b408d45669603dbac61cd15984f13"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AppTick</span></span></span><a class="headerlink" href="#_CPPv4N9EventType7AppTickE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
@@ -1394,6 +1566,94 @@
 </dd></dl>
 
 <dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee13FileDropEventE">
+<span id="_CPPv3N6Coffee13FileDropEventE"></span><span id="_CPPv2N6Coffee13FileDropEventE"></span><span id="Coffee::FileDropEvent"></span><span class="target" id="classCoffee_1_1FileDropEvent"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FileDropEvent</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">Coffee</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6Coffee5EventE" title="Coffee::Event"><span class="n"><span class="pre">Event</span></span></a><a class="headerlink" href="#_CPPv4N6Coffee13FileDropEventE" title="Link to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;ApplicationEvent.h&gt;</em></div>
+<p><a class="reference internal" href="#classCoffee_1_1Event"><span class="std std-ref">Event</span></a> for Dropping a file. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent12GetTimestampEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent12GetTimestampEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent12GetTimestampEv"></span><span id="Coffee::FileDropEvent::GetTimestampC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1ad068b97438eab7f1038c1b345fcaf5f1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetTimestamp</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent12GetTimestampEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the timestamp of the event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The timestamp of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent11GetWindowIDEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent11GetWindowIDEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent11GetWindowIDEv"></span><span id="Coffee::FileDropEvent::GetWindowIDC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1adc48352c3638dd38976a4731b3822d26"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetWindowID</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent11GetWindowIDEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the window ID of the event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The window ID of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent4GetXEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent4GetXEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent4GetXEv"></span><span id="Coffee::FileDropEvent::GetXC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1af040fff6de144bf57dcad44ede2b955e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent4GetXEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the x position of the event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The x position of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent4GetYEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent4GetYEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent4GetYEv"></span><span id="Coffee::FileDropEvent::GetYC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1ab66488c2fbb5e11122e300d27a9430ce"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent4GetYEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the y position of the event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The y position of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent9GetSourceEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent9GetSourceEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent9GetSourceEv"></span><span id="Coffee::FileDropEvent::GetSourceC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1a5a2bb211b7faf901dcd804d4261b1e72"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">GetSource</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent9GetSourceEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the source of the event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The source of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent7GetFileEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent7GetFileEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent7GetFileEv"></span><span id="Coffee::FileDropEvent::GetFileC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1a99dfc06a577924e41851b64029b5b4a3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">GetFile</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent7GetFileEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Get the file of the event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The file of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee13FileDropEvent8ToStringEv">
+<span id="_CPPv3NK6Coffee13FileDropEvent8ToStringEv"></span><span id="_CPPv2NK6Coffee13FileDropEvent8ToStringEv"></span><span id="Coffee::FileDropEvent::ToStringC"></span><span class="target" id="classCoffee_1_1FileDropEvent_1aa82d4500a9b49cc338fb2b43cd6ba3c0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ToString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK6Coffee13FileDropEvent8ToStringEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Convert the event to a string representation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string representation of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee12AppTickEventE">
 <span id="_CPPv3N6Coffee12AppTickEventE"></span><span id="_CPPv2N6Coffee12AppTickEventE"></span><span id="Coffee::AppTickEvent"></span><span class="target" id="classCoffee_1_1AppTickEvent"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AppTickEvent</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">Coffee</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6Coffee5EventE" title="Coffee::Event"><span class="n"><span class="pre">Event</span></span></a><a class="headerlink" href="#_CPPv4N6Coffee12AppTickEventE" title="Link to this definition"></a><br /></dt>
 <dd><div class="docutils container">
@@ -1423,7 +1683,7 @@
 <dd><div class="docutils container">
 <em>#include &lt;Event.h&gt;</em></div>
 <p>Base class for all events. </p>
-<p>Subclassed by <a class="reference internal" href="#classCoffee_1_1AppRenderEvent"><span class="std std-ref">Coffee::AppRenderEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1AppTickEvent"><span class="std std-ref">Coffee::AppTickEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1AppUpdateEvent"><span class="std std-ref">Coffee::AppUpdateEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1KeyEvent"><span class="std std-ref">Coffee::KeyEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1MouseButtonEvent"><span class="std std-ref">Coffee::MouseButtonEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1MouseMovedEvent"><span class="std std-ref">Coffee::MouseMovedEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1MouseScrolledEvent"><span class="std std-ref">Coffee::MouseScrolledEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1WindowCloseEvent"><span class="std std-ref">Coffee::WindowCloseEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1WindowResizeEvent"><span class="std std-ref">Coffee::WindowResizeEvent</span></a></p>
+<p>Subclassed by <a class="reference internal" href="#classCoffee_1_1AppRenderEvent"><span class="std std-ref">Coffee::AppRenderEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1AppTickEvent"><span class="std std-ref">Coffee::AppTickEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1AppUpdateEvent"><span class="std std-ref">Coffee::AppUpdateEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1FileDropEvent"><span class="std std-ref">Coffee::FileDropEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1KeyEvent"><span class="std std-ref">Coffee::KeyEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1MouseButtonEvent"><span class="std std-ref">Coffee::MouseButtonEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1MouseMovedEvent"><span class="std std-ref">Coffee::MouseMovedEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1MouseScrolledEvent"><span class="std std-ref">Coffee::MouseScrolledEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1WindowCloseEvent"><span class="std std-ref">Coffee::WindowCloseEvent</span></a>, <a class="reference internal" href="#classCoffee_1_1WindowResizeEvent"><span class="std std-ref">Coffee::WindowResizeEvent</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -1996,8 +2256,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Project3NewEv">
-<span id="_CPPv3N6Coffee7Project3NewEv"></span><span id="_CPPv2N6Coffee7Project3NewEv"></span><span id="Coffee::Project::New"></span><span class="target" id="classCoffee_1_1Project_1a14e4f7310a1054b4435339d24c9cc128"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee7ProjectE" title="Coffee::Project"><span class="n"><span class="pre">Project</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">New</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Project3NewEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Project3NewERKNSt10filesystem4pathE">
+<span id="_CPPv3N6Coffee7Project3NewERKNSt10filesystem4pathE"></span><span id="_CPPv2N6Coffee7Project3NewERKNSt10filesystem4pathE"></span><span id="Coffee::Project::New__std::filesystem::pathCR"></span><span class="target" id="classCoffee_1_1Project_1aed65c0f709ecf984185fff5f5e14cd22"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee7ProjectE" title="Coffee::Project"><span class="n"><span class="pre">Project</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">New</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Project3NewERKNSt10filesystem4pathE" title="Link to this definition"></a><br /></dt>
 <dd><p>Creates a new project. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -2021,8 +2281,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Project10SaveActiveERKNSt10filesystem4pathE">
-<span id="_CPPv3N6Coffee7Project10SaveActiveERKNSt10filesystem4pathE"></span><span id="_CPPv2N6Coffee7Project10SaveActiveERKNSt10filesystem4pathE"></span><span id="Coffee::Project::SaveActive__std::filesystem::pathCR"></span><span class="target" id="classCoffee_1_1Project_1a7f6f4b9c8e0f9afb91b50d92ba6f8fec"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SaveActive</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Project10SaveActiveERKNSt10filesystem4pathE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Project10SaveActiveEv">
+<span id="_CPPv3N6Coffee7Project10SaveActiveEv"></span><span id="_CPPv2N6Coffee7Project10SaveActiveEv"></span><span id="Coffee::Project::SaveActive"></span><span class="target" id="classCoffee_1_1Project_1a4f8321238362be4d90311f76c867b49b"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SaveActive</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Project10SaveActiveEv" title="Link to this definition"></a><br /></dt>
 <dd><p>Saves the active project to the specified path. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2060,6 +2320,18 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The name of the project. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Project17GetCacheDirectoryEv">
+<span id="_CPPv3N6Coffee7Project17GetCacheDirectoryEv"></span><span id="_CPPv2N6Coffee7Project17GetCacheDirectoryEv"></span><span id="Coffee::Project::GetCacheDirectory"></span><span class="target" id="classCoffee_1_1Project_1af7999686c97c18aa218619a546bad34b"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCacheDirectory</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Project17GetCacheDirectoryEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Retrieves the cache directory path of the active project. </p>
+<p>This static method returns a constant reference to the cache directory path associated with the currently active project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>const std::filesystem::path&amp; Reference to the cache directory path. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -2206,230 +2478,6 @@
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv47TextureRK17TextureProperties">
-<span id="_CPPv37TextureRK17TextureProperties"></span><span id="_CPPv27TextureRK17TextureProperties"></span><span id="Texture__TexturePropertiesCR"></span><span class="target" id="group__renderer_1gad7ee84f81d47d1b3a591482c0c7c6cee"></span><span class="sig-name descname"><span class="n"><span class="pre">Texture</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">TextureProperties</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">properties</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47TextureRK17TextureProperties" title="Link to this definition"></a><br /></dt>
-<dd><p>Constructs a <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> with the specified properties. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>properties</strong> – The properties of the texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv47Texture8uint32_t8uint32_t11ImageFormat">
-<span id="_CPPv37Texture8uint32_t8uint32_t11ImageFormat"></span><span id="_CPPv27Texture8uint32_t8uint32_t11ImageFormat"></span><span id="Texture__uint32_t.uint32_t.ImageFormat"></span><span class="target" id="group__renderer_1ga5c6495f082a06ed1982543d6dad41e5b"></span><span class="sig-name descname"><span class="n"><span class="pre">Texture</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">imageFormat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47Texture8uint32_t8uint32_t11ImageFormat" title="Link to this definition"></a><br /></dt>
-<dd><p>Constructs a <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> with the specified width, height, and image format. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> – The width of the texture. </p></li>
-<li><p><strong>height</strong> – The height of the texture. </p></li>
-<li><p><strong>imageFormat</strong> – The format of the image. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv47TextureRKNSt10filesystem4pathEb">
-<span id="_CPPv37TextureRKNSt10filesystem4pathEb"></span><span id="_CPPv27TextureRKNSt10filesystem4pathEb"></span><span id="Texture__std::filesystem::pathCR.b"></span><span class="target" id="group__renderer_1ga321f181828582fda0f7f637cb818006f"></span><span class="sig-name descname"><span class="n"><span class="pre">Texture</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srgb</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47TextureRKNSt10filesystem4pathEb" title="Link to this definition"></a><br /></dt>
-<dd><p>Constructs a <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> from a file path. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> – The file path to the texture. </p></li>
-<li><p><strong>srgb</strong> – Whether the texture is in sRGB format. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4D0v">
-<span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~Texture"></span><span class="target" id="group__renderer_1gabb74bfe139f4a42871527b880dde6bef"></span><span class="sig-name descname"><span class="n"><span class="pre">~Texture</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Link to this definition"></a><br /></dt>
-<dd><p>Destructor for the <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> class. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv44Bind8uint32_t">
-<span id="_CPPv34Bind8uint32_t"></span><span id="_CPPv24Bind8uint32_t"></span><span id="Bind__uint32_t"></span><span class="target" id="group__renderer_1ga3b1382239c354ae48cad6f85ce19c345"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Bind</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">slot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44Bind8uint32_t" title="Link to this definition"></a><br /></dt>
-<dd><p>Binds the texture to the specified slot. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>slot</strong> – The slot to bind the texture to. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv46Resize8uint32_t8uint32_t">
-<span id="_CPPv36Resize8uint32_t8uint32_t"></span><span id="_CPPv26Resize8uint32_t8uint32_t"></span><span id="Resize__uint32_t.uint32_t"></span><span class="target" id="group__renderer_1ga22ce774dea7b5dd0fa59b2e68bb94558"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Resize</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv46Resize8uint32_t8uint32_t" title="Link to this definition"></a><br /></dt>
-<dd><p>Resizes the texture to the specified width and height. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> – The new width of the texture. </p></li>
-<li><p><strong>height</strong> – The new height of the texture. </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv47GetSizev">
-<span id="_CPPv37GetSizev"></span><span id="_CPPv27GetSizev"></span><span id="GetSize"></span><span class="target" id="group__renderer_1gaf4d1d5f7a2b93ae3c31d9eb0b8b1d80e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47GetSizev" title="Link to this definition"></a><br /></dt>
-<dd><p>Gets the size of the texture. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A pair containing the width and height of the texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv48GetWidthv">
-<span id="_CPPv38GetWidthv"></span><span id="_CPPv28GetWidthv"></span><span id="GetWidth"></span><span class="target" id="group__renderer_1ga525f111c18ec7fe7021e38e24d384af4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetWidth</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48GetWidthv" title="Link to this definition"></a><br /></dt>
-<dd><p>Gets the width of the texture. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The width of the texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv49GetHeightv">
-<span id="_CPPv39GetHeightv"></span><span id="_CPPv29GetHeightv"></span><span id="GetHeight"></span><span class="target" id="group__renderer_1gad6729648317d9ab934be20c8d08a6ee5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetHeight</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49GetHeightv" title="Link to this definition"></a><br /></dt>
-<dd><p>Gets the height of the texture. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The height of the texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv45GetIDv">
-<span id="_CPPv35GetIDv"></span><span id="_CPPv25GetIDv"></span><span id="GetID"></span><span class="target" id="group__renderer_1ga990aa3d9a44f598845108a90106cecf2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetID</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45GetIDv" title="Link to this definition"></a><br /></dt>
-<dd><p>Gets the ID of the texture. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The ID of the texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv45ClearN3glm4vec4E">
-<span id="_CPPv35ClearN3glm4vec4E"></span><span id="_CPPv25ClearN3glm4vec4E"></span><span id="Clear__glm::vec4"></span><span class="target" id="group__renderer_1gad6fec10ae0b605caf0a21a7e8b265c39"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec4</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">color</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45ClearN3glm4vec4E" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv47SetDataPv8uint32_t">
-<span id="_CPPv37SetDataPv8uint32_t"></span><span id="_CPPv27SetDataPv8uint32_t"></span><span id="SetData__voidP.uint32_t"></span><span class="target" id="group__renderer_1gaaf4f07e6dc28e7938098589deb40761f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetData</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47SetDataPv8uint32_t" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv414GetImageFormatv">
-<span id="_CPPv314GetImageFormatv"></span><span id="_CPPv214GetImageFormatv"></span><span id="GetImageFormat"></span><span class="target" id="group__renderer_1gacc0f2d8234a59fbe26ce5a39d8dbdb3c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetImageFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414GetImageFormatv" title="Link to this definition"></a><br /></dt>
-<dd><p>Gets the image format of the texture. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The image format of the texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv44LoadRKNSt10filesystem4pathEb">
-<span id="_CPPv34LoadRKNSt10filesystem4pathEb"></span><span id="_CPPv24LoadRKNSt10filesystem4pathEb"></span><span id="Load__std::filesystem::pathCR.b"></span><span class="target" id="group__renderer_1gaec99ad577bfddc436e1603998ffebfdd"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv47TextureRK17TextureProperties" title="Texture"><span class="n"><span class="pre">Texture</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srgb</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44LoadRKNSt10filesystem4pathEb" title="Link to this definition"></a><br /></dt>
-<dd><p>Loads a texture from a file path. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> – The file path to the texture. </p></li>
-<li><p><strong>srgb</strong> – Whether the texture is in sRGB format. </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A reference to the loaded texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv46Create8uint32_t8uint32_t11ImageFormat">
-<span id="_CPPv36Create8uint32_t8uint32_t11ImageFormat"></span><span id="_CPPv26Create8uint32_t8uint32_t11ImageFormat"></span><span id="Create__uint32_t.uint32_t.ImageFormat"></span><span class="target" id="group__renderer_1gae07415f6a9e8ca5a02742595663fac88"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv47TextureRK17TextureProperties" title="Texture"><span class="n"><span class="pre">Texture</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">format</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv46Create8uint32_t8uint32_t11ImageFormat" title="Link to this definition"></a><br /></dt>
-<dd><p>Creates a texture with the specified width, height, and format. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>width</strong> – The width of the texture. </p></li>
-<li><p><strong>height</strong> – The height of the texture. </p></li>
-<li><p><strong>format</strong> – The format of the texture. </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A reference to the created texture. </p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv46Format">
-<span id="_CPPv36Format"></span><span id="_CPPv26Format"></span><span id="Format__ImageFormat"></span><span class="target" id="group__renderer_1gad50daf5725318ea31b3608088ea615f1"></span><a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Format</span></span></span><a class="headerlink" href="#_CPPv46Format" title="Link to this definition"></a><br /></dt>
-<dd><p>The format of the image. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv45Width">
-<span id="_CPPv35Width"></span><span id="_CPPv25Width"></span><span id="Width__uint32_t"></span><span class="target" id="group__renderer_1ga130529a150deb11113254623f2b55f59"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Width</span></span></span><a class="headerlink" href="#_CPPv45Width" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv46Height">
-<span id="_CPPv36Height"></span><span id="_CPPv26Height"></span><span id="Height__uint32_t"></span><span class="target" id="group__renderer_1gad6d52f9dcf8151633e3118a5e943194f"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Height</span></span></span><a class="headerlink" href="#_CPPv46Height" title="Link to this definition"></a><br /></dt>
-<dd><p>The width and height of the texture. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv415GenerateMipmaps">
-<span id="_CPPv315GenerateMipmaps"></span><span id="_CPPv215GenerateMipmaps"></span><span id="GenerateMipmaps__b"></span><span class="target" id="group__renderer_1ga2ff2c0d7a0185e90da99a083aaab5f0f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GenerateMipmaps</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><a class="headerlink" href="#_CPPv415GenerateMipmaps" title="Link to this definition"></a><br /></dt>
-<dd><p>Whether to generate mipmaps. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv44srgb">
-<span id="_CPPv34srgb"></span><span id="_CPPv24srgb"></span><span id="srgb__b"></span><span class="target" id="group__renderer_1gae031f39f406b9f3551f7d01e689ad5f0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">srgb</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><a class="headerlink" href="#_CPPv44srgb" title="Link to this definition"></a><br /></dt>
-<dd><p>Whether the texture is in sRGB format. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv412m_Properties">
-<span id="_CPPv312m_Properties"></span><span id="_CPPv212m_Properties"></span><span id="m_Properties__TextureProperties"></span><span class="target" id="group__renderer_1ga3a01fb9a19afd2beee53a71e18ce40f6"></span><span class="n"><span class="pre">TextureProperties</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_Properties</span></span></span><a class="headerlink" href="#_CPPv412m_Properties" title="Link to this definition"></a><br /></dt>
-<dd><p>The properties of the texture. </p>
-</dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv411m_textureID">
-<span id="_CPPv311m_textureID"></span><span id="_CPPv211m_textureID"></span><span id="m_textureID__uint32_t"></span><span class="target" id="group__renderer_1ga03f4fc480d05de3b16d0471a439a43c7"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_textureID</span></span></span><a class="headerlink" href="#_CPPv411m_textureID" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv47m_Width">
-<span id="_CPPv37m_Width"></span><span id="_CPPv27m_Width"></span><span id="m_Width__i"></span><span class="target" id="group__renderer_1gab0ea7b7bdb565a6a76860fe6fd994cc8"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_Width</span></span></span><a class="headerlink" href="#_CPPv47m_Width" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv48m_Height">
-<span id="_CPPv38m_Height"></span><span id="_CPPv28m_Height"></span><span id="m_Height__i"></span><span class="target" id="group__renderer_1ga31fb8a75da2e0c11e6f0a64caf86d23f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_Height</span></span></span><a class="headerlink" href="#_CPPv48m_Height" title="Link to this definition"></a><br /></dt>
-<dd></dd></dl>
 
 </div>
 <dl class="cpp struct">
@@ -2915,6 +2963,34 @@
 <em>#include &lt;EditorCamera.h&gt;</em></div>
 <p>The <a class="reference internal" href="#classCoffee_1_1EditorCamera"><span class="std std-ref">EditorCamera</span></a> class is responsible for managing the editor camera’s view and projection matrices. </p>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum-class">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera11CameraStateE">
+<span id="_CPPv3N6Coffee12EditorCamera11CameraStateE"></span><span id="_CPPv2N6Coffee12EditorCamera11CameraStateE"></span><span class="target" id="classCoffee_1_1EditorCamera_1aa69207bbc6ec4df196f5a2c4e1de945c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CameraState</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee12EditorCamera11CameraStateE" title="Link to this definition"></a><br /></dt>
+<dd><p>Enum class representing the state of the camera. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera11CameraState4NONEE">
+<span id="_CPPv3N6Coffee12EditorCamera11CameraState4NONEE"></span><span id="_CPPv2N6Coffee12EditorCamera11CameraState4NONEE"></span><span class="target" id="classCoffee_1_1EditorCamera_1aa69207bbc6ec4df196f5a2c4e1de945cab50339a10e1de285ac99d4c3990b8693"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NONE</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee12EditorCamera11CameraState4NONEE" title="Link to this definition"></a><br /></dt>
+<dd><p>No camera state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera11CameraState5ORBITE">
+<span id="_CPPv3N6Coffee12EditorCamera11CameraState5ORBITE"></span><span id="_CPPv2N6Coffee12EditorCamera11CameraState5ORBITE"></span><span class="target" id="classCoffee_1_1EditorCamera_1aa69207bbc6ec4df196f5a2c4e1de945ca48d80811ec81276fb3ee0df3944e7aee"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ORBIT</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee12EditorCamera11CameraState5ORBITE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classCoffee_1_1Camera"><span class="std std-ref">Camera</span></a> is in orbit mode. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera11CameraState3FLYE">
+<span id="_CPPv3N6Coffee12EditorCamera11CameraState3FLYE"></span><span id="_CPPv2N6Coffee12EditorCamera11CameraState3FLYE"></span><span class="target" id="classCoffee_1_1EditorCamera_1aa69207bbc6ec4df196f5a2c4e1de945ca327c84b33a8b5e93858289478b0202b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FLY</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee12EditorCamera11CameraState3FLYE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classCoffee_1_1Camera"><span class="std std-ref">Camera</span></a> is in fly mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera12EditorCameraEv">
@@ -2940,8 +3016,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera8OnUpdateEv">
-<span id="_CPPv3N6Coffee12EditorCamera8OnUpdateEv"></span><span id="_CPPv2N6Coffee12EditorCamera8OnUpdateEv"></span><span id="Coffee::EditorCamera::OnUpdate"></span><span class="target" id="classCoffee_1_1EditorCamera_1a553997b6dbbde7acc4f70682e6943f19"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnUpdate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee12EditorCamera8OnUpdateEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee12EditorCamera8OnUpdateEf">
+<span id="_CPPv3N6Coffee12EditorCamera8OnUpdateEf"></span><span id="_CPPv2N6Coffee12EditorCamera8OnUpdateEf"></span><span id="Coffee::EditorCamera::OnUpdate__float"></span><span class="target" id="classCoffee_1_1EditorCamera_1ab4a38d6ba677b4a189e5c1e49768d0fc"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnUpdate</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dt</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee12EditorCamera8OnUpdateEf" title="Link to this definition"></a><br /></dt>
 <dd><p>Updates the camera’s view matrix. </p>
 </dd></dl>
 
@@ -3043,6 +3119,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The orientation. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6Coffee12EditorCamera8GetStateEv">
+<span id="_CPPv3NK6Coffee12EditorCamera8GetStateEv"></span><span id="_CPPv2NK6Coffee12EditorCamera8GetStateEv"></span><span id="Coffee::EditorCamera::GetStateC"></span><span class="target" id="classCoffee_1_1EditorCamera_1a93065fcff96ed80608c6ab3210be8893"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6Coffee12EditorCamera11CameraStateE" title="Coffee::EditorCamera::CameraState"><span class="n"><span class="pre">CameraState</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">GetState</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK6Coffee12EditorCamera8GetStateEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the current state of the camera. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current state of the camera. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -3288,11 +3375,49 @@
 </dd></dl>
 
 <dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee22MaterialRenderSettingsE">
+<span id="_CPPv3N6Coffee22MaterialRenderSettingsE"></span><span id="_CPPv2N6Coffee22MaterialRenderSettingsE"></span><span id="Coffee::MaterialRenderSettings"></span><span class="target" id="structCoffee_1_1MaterialRenderSettings"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaterialRenderSettings</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee22MaterialRenderSettingsE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee18MaterialPropertiesE">
 <span id="_CPPv3N6Coffee18MaterialPropertiesE"></span><span id="_CPPv2N6Coffee18MaterialPropertiesE"></span><span id="Coffee::MaterialProperties"></span><span class="target" id="structCoffee_1_1MaterialProperties"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaterialProperties</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee18MaterialPropertiesE" title="Link to this definition"></a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;Material.h&gt;</em></div>
 <p>Structure representing the properties of a material. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee18MaterialProperties5colorE">
+<span id="_CPPv3N6Coffee18MaterialProperties5colorE"></span><span id="_CPPv2N6Coffee18MaterialProperties5colorE"></span><span id="Coffee::MaterialProperties::color__glm::vec4"></span><span class="target" id="structCoffee_1_1MaterialProperties_1a2fb3c97c8e630b045397c718ccfa9c08"></span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec4</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">color</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec4</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N6Coffee18MaterialProperties5colorE" title="Link to this definition"></a><br /></dt>
+<dd><p>The color of the material. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee18MaterialProperties8metallicE">
+<span id="_CPPv3N6Coffee18MaterialProperties8metallicE"></span><span id="_CPPv2N6Coffee18MaterialProperties8metallicE"></span><span id="Coffee::MaterialProperties::metallic__float"></span><span class="target" id="structCoffee_1_1MaterialProperties_1a4738a3ba6c6fa30048bd9492a16e7016"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">metallic</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0f</span></span><a class="headerlink" href="#_CPPv4N6Coffee18MaterialProperties8metallicE" title="Link to this definition"></a><br /></dt>
+<dd><p>The metallic value of the material. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee18MaterialProperties9roughnessE">
+<span id="_CPPv3N6Coffee18MaterialProperties9roughnessE"></span><span id="_CPPv2N6Coffee18MaterialProperties9roughnessE"></span><span id="Coffee::MaterialProperties::roughness__float"></span><span class="target" id="structCoffee_1_1MaterialProperties_1a0c616060b2fcff03ed7fcab7f008c7ac"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">roughness</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><a class="headerlink" href="#_CPPv4N6Coffee18MaterialProperties9roughnessE" title="Link to this definition"></a><br /></dt>
+<dd><p>The roughness value of the material. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee18MaterialProperties2aoE">
+<span id="_CPPv3N6Coffee18MaterialProperties2aoE"></span><span id="_CPPv2N6Coffee18MaterialProperties2aoE"></span><span id="Coffee::MaterialProperties::ao__float"></span><span class="target" id="structCoffee_1_1MaterialProperties_1a58256267ebda0bce48bf4de7dfdbd115"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ao</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><a class="headerlink" href="#_CPPv4N6Coffee18MaterialProperties2aoE" title="Link to this definition"></a><br /></dt>
+<dd><p>The ambient occlusion value of the material. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee18MaterialProperties8emissiveE">
+<span id="_CPPv3N6Coffee18MaterialProperties8emissiveE"></span><span id="_CPPv2N6Coffee18MaterialProperties8emissiveE"></span><span id="Coffee::MaterialProperties::emissive__glm::vec3"></span><span class="target" id="structCoffee_1_1MaterialProperties_1a90599379211766e526fbfbf3856d2903"></span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">emissive</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N6Coffee18MaterialProperties8emissiveE" title="Link to this definition"></a><br /></dt>
+<dd><p>The emissive value of the material. </p>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="cpp struct">
@@ -3341,6 +3466,11 @@
 
 </div>
 </dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee20MaterialTextureFlagsE">
+<span id="_CPPv3N6Coffee20MaterialTextureFlagsE"></span><span id="_CPPv2N6Coffee20MaterialTextureFlagsE"></span><span id="Coffee::MaterialTextureFlags"></span><span class="target" id="structCoffee_1_1MaterialTextureFlags"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaterialTextureFlags</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee20MaterialTextureFlagsE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee8MaterialE">
@@ -3460,6 +3590,16 @@
 </div>
 </dd></dl>
 
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee4AABBE">
+<span id="_CPPv3N6Coffee4AABBE"></span><span id="_CPPv2N6Coffee4AABBE"></span><span id="Coffee::AABB"></span><span class="target" id="structCoffee_1_1AABB"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AABB</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee4AABBE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee3OBBE">
+<span id="_CPPv3N6Coffee3OBBE"></span><span id="_CPPv2N6Coffee3OBBE"></span><span id="Coffee::OBB"></span><span class="target" id="structCoffee_1_1OBB"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OBB</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee3OBBE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee4MeshE">
 <span id="_CPPv3N6Coffee4MeshE"></span><span id="_CPPv2N6Coffee4MeshE"></span><span id="Coffee::Mesh"></span><span class="target" id="classCoffee_1_1Mesh"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mesh</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee4MeshE" title="Link to this definition"></a><br /></dt>
@@ -3544,6 +3684,28 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>material</strong> – A reference to the material. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee4Mesh7SetAABBEK4AABB">
+<span id="_CPPv3N6Coffee4Mesh7SetAABBEK4AABB"></span><span id="_CPPv2N6Coffee4Mesh7SetAABBEK4AABB"></span><span id="Coffee::Mesh::SetAABB__AABBC"></span><span class="target" id="classCoffee_1_1Mesh_1ae6ed771b091a31341cd6f9f0deff9d21"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetAABB</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6Coffee4AABBE" title="Coffee::AABB"><span class="n"><span class="pre">AABB</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">aabb</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee4Mesh7SetAABBEK4AABB" title="Link to this definition"></a><br /></dt>
+<dd><p>Sets the axis-aligned bounding box (<a class="reference internal" href="#structCoffee_1_1AABB"><span class="std std-ref">AABB</span></a>) of the mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aabb</strong> – The axis-aligned bounding box to set. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee4Mesh7GetAABBEv">
+<span id="_CPPv3N6Coffee4Mesh7GetAABBEv"></span><span id="_CPPv2N6Coffee4Mesh7GetAABBEv"></span><span id="Coffee::Mesh::GetAABB"></span><span class="target" id="classCoffee_1_1Mesh_1a1539be40fb766ec3b3a0b7e8b3c1d393"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6Coffee4AABBE" title="Coffee::AABB"><span class="n"><span class="pre">AABB</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">GetAABB</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee4Mesh7GetAABBEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the axis-aligned bounding box (<a class="reference internal" href="#structCoffee_1_1AABB"><span class="std std-ref">AABB</span></a>) of the mesh. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A reference to the <a class="reference internal" href="#structCoffee_1_1AABB"><span class="std std-ref">AABB</span></a>. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -4356,6 +4518,33 @@
 <dd><div class="docutils container">
 <em>#include &lt;Texture.h&gt;</em></div>
 <p>Structure representing properties of a texture. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee17TextureProperties6FormatE">
+<span id="_CPPv3N6Coffee17TextureProperties6FormatE"></span><span id="_CPPv2N6Coffee17TextureProperties6FormatE"></span><span id="Coffee::TextureProperties::Format__ImageFormat"></span><span class="target" id="structCoffee_1_1TextureProperties_1ad50daf5725318ea31b3608088ea615f1"></span><a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Format</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee17TextureProperties6FormatE" title="Link to this definition"></a><br /></dt>
+<dd><p>The format of the image. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee17TextureProperties6HeightE">
+<span id="_CPPv3N6Coffee17TextureProperties6HeightE"></span><span id="_CPPv2N6Coffee17TextureProperties6HeightE"></span><span id="Coffee::TextureProperties::Height__uint32_t"></span><span class="target" id="structCoffee_1_1TextureProperties_1ad6d52f9dcf8151633e3118a5e943194f"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Height</span></span></span><a class="headerlink" href="#_CPPv4N6Coffee17TextureProperties6HeightE" title="Link to this definition"></a><br /></dt>
+<dd><p>The width and height of the texture. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee17TextureProperties15GenerateMipmapsE">
+<span id="_CPPv3N6Coffee17TextureProperties15GenerateMipmapsE"></span><span id="_CPPv2N6Coffee17TextureProperties15GenerateMipmapsE"></span><span id="Coffee::TextureProperties::GenerateMipmaps__b"></span><span class="target" id="structCoffee_1_1TextureProperties_1a2ff2c0d7a0185e90da99a083aaab5f0f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GenerateMipmaps</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><a class="headerlink" href="#_CPPv4N6Coffee17TextureProperties15GenerateMipmapsE" title="Link to this definition"></a><br /></dt>
+<dd><p>Whether to generate mipmaps. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee17TextureProperties4srgbE">
+<span id="_CPPv3N6Coffee17TextureProperties4srgbE"></span><span id="_CPPv2N6Coffee17TextureProperties4srgbE"></span><span id="Coffee::TextureProperties::srgb__b"></span><span class="target" id="structCoffee_1_1TextureProperties_1ae031f39f406b9f3551f7d01e689ad5f0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">srgb</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><a class="headerlink" href="#_CPPv4N6Coffee17TextureProperties4srgbE" title="Link to this definition"></a><br /></dt>
+<dd><p>Whether the texture is in sRGB format. </p>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="cpp class">
@@ -4364,6 +4553,173 @@
 <dd><div class="docutils container">
 <em>#include &lt;Texture.h&gt;</em></div>
 <p>Class representing a texture. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture7TextureERK17TextureProperties">
+<span id="_CPPv3N6Coffee7Texture7TextureERK17TextureProperties"></span><span id="_CPPv2N6Coffee7Texture7TextureERK17TextureProperties"></span><span id="Coffee::Texture::Texture__TexturePropertiesCR"></span><span class="target" id="classCoffee_1_1Texture_1ad7ee84f81d47d1b3a591482c0c7c6cee"></span><span class="sig-name descname"><span class="n"><span class="pre">Texture</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6Coffee17TexturePropertiesE" title="Coffee::TextureProperties"><span class="n"><span class="pre">TextureProperties</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">properties</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture7TextureERK17TextureProperties" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> with the specified properties. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>properties</strong> – The properties of the texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture7TextureE8uint32_t8uint32_t11ImageFormat">
+<span id="_CPPv3N6Coffee7Texture7TextureE8uint32_t8uint32_t11ImageFormat"></span><span id="_CPPv2N6Coffee7Texture7TextureE8uint32_t8uint32_t11ImageFormat"></span><span id="Coffee::Texture::Texture__uint32_t.uint32_t.ImageFormat"></span><span class="target" id="classCoffee_1_1Texture_1a5c6495f082a06ed1982543d6dad41e5b"></span><span class="sig-name descname"><span class="n"><span class="pre">Texture</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">imageFormat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture7TextureE8uint32_t8uint32_t11ImageFormat" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> with the specified width, height, and image format. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> – The width of the texture. </p></li>
+<li><p><strong>height</strong> – The height of the texture. </p></li>
+<li><p><strong>imageFormat</strong> – The format of the image. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture7TextureERKNSt10filesystem4pathEb">
+<span id="_CPPv3N6Coffee7Texture7TextureERKNSt10filesystem4pathEb"></span><span id="_CPPv2N6Coffee7Texture7TextureERKNSt10filesystem4pathEb"></span><span id="Coffee::Texture::Texture__std::filesystem::pathCR.b"></span><span class="target" id="classCoffee_1_1Texture_1a321f181828582fda0f7f637cb818006f"></span><span class="sig-name descname"><span class="n"><span class="pre">Texture</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srgb</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture7TextureERKNSt10filesystem4pathEb" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> from a file path. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The file path to the texture. </p></li>
+<li><p><strong>srgb</strong> – Whether the texture is in sRGB format. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7TextureD0Ev">
+<span id="_CPPv3N6Coffee7TextureD0Ev"></span><span id="_CPPv2N6Coffee7TextureD0Ev"></span><span id="Coffee::Texture::~Texture"></span><span class="target" id="classCoffee_1_1Texture_1abb74bfe139f4a42871527b880dde6bef"></span><span class="sig-name descname"><span class="n"><span class="pre">~Texture</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7TextureD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destructor for the <a class="reference internal" href="#classCoffee_1_1Texture"><span class="std std-ref">Texture</span></a> class. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture4BindE8uint32_t">
+<span id="_CPPv3N6Coffee7Texture4BindE8uint32_t"></span><span id="_CPPv2N6Coffee7Texture4BindE8uint32_t"></span><span id="Coffee::Texture::Bind__uint32_t"></span><span class="target" id="classCoffee_1_1Texture_1a3b1382239c354ae48cad6f85ce19c345"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Bind</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">slot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture4BindE8uint32_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Binds the texture to the specified slot. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>slot</strong> – The slot to bind the texture to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture6ResizeE8uint32_t8uint32_t">
+<span id="_CPPv3N6Coffee7Texture6ResizeE8uint32_t8uint32_t"></span><span id="_CPPv2N6Coffee7Texture6ResizeE8uint32_t8uint32_t"></span><span id="Coffee::Texture::Resize__uint32_t.uint32_t"></span><span class="target" id="classCoffee_1_1Texture_1a22ce774dea7b5dd0fa59b2e68bb94558"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Resize</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture6ResizeE8uint32_t8uint32_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Resizes the texture to the specified width and height. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> – The new width of the texture. </p></li>
+<li><p><strong>height</strong> – The new height of the texture. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture7GetSizeEv">
+<span id="_CPPv3N6Coffee7Texture7GetSizeEv"></span><span id="_CPPv2N6Coffee7Texture7GetSizeEv"></span><span id="Coffee::Texture::GetSize"></span><span class="target" id="classCoffee_1_1Texture_1af4d1d5f7a2b93ae3c31d9eb0b8b1d80e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">uint32_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture7GetSizeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the size of the texture. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pair containing the width and height of the texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture8GetWidthEv">
+<span id="_CPPv3N6Coffee7Texture8GetWidthEv"></span><span id="_CPPv2N6Coffee7Texture8GetWidthEv"></span><span id="Coffee::Texture::GetWidth"></span><span class="target" id="classCoffee_1_1Texture_1a525f111c18ec7fe7021e38e24d384af4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetWidth</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture8GetWidthEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the width of the texture. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The width of the texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture9GetHeightEv">
+<span id="_CPPv3N6Coffee7Texture9GetHeightEv"></span><span id="_CPPv2N6Coffee7Texture9GetHeightEv"></span><span id="Coffee::Texture::GetHeight"></span><span class="target" id="classCoffee_1_1Texture_1ad6729648317d9ab934be20c8d08a6ee5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetHeight</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture9GetHeightEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the height of the texture. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The height of the texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture5GetIDEv">
+<span id="_CPPv3N6Coffee7Texture5GetIDEv"></span><span id="_CPPv2N6Coffee7Texture5GetIDEv"></span><span id="Coffee::Texture::GetID"></span><span class="target" id="classCoffee_1_1Texture_1a990aa3d9a44f598845108a90106cecf2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetID</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture5GetIDEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the ID of the texture. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ID of the texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture14GetImageFormatEv">
+<span id="_CPPv3N6Coffee7Texture14GetImageFormatEv"></span><span id="_CPPv2N6Coffee7Texture14GetImageFormatEv"></span><span id="Coffee::Texture::GetImageFormat"></span><span class="target" id="classCoffee_1_1Texture_1acc0f2d8234a59fbe26ce5a39d8dbdb3c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetImageFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture14GetImageFormatEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Gets the image format of the texture. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The image format of the texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture4LoadERKNSt10filesystem4pathEb">
+<span id="_CPPv3N6Coffee7Texture4LoadERKNSt10filesystem4pathEb"></span><span id="_CPPv2N6Coffee7Texture4LoadERKNSt10filesystem4pathEb"></span><span id="Coffee::Texture::Load__std::filesystem::pathCR.b"></span><span class="target" id="classCoffee_1_1Texture_1aec99ad577bfddc436e1603998ffebfdd"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee7TextureE" title="Coffee::Texture"><span class="n"><span class="pre">Texture</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srgb</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture4LoadERKNSt10filesystem4pathEb" title="Link to this definition"></a><br /></dt>
+<dd><p>Loads a texture from a file path. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The file path to the texture. </p></li>
+<li><p><strong>srgb</strong> – Whether the texture is in sRGB format. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the loaded texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6Coffee7Texture6CreateE8uint32_t8uint32_t11ImageFormat">
+<span id="_CPPv3N6Coffee7Texture6CreateE8uint32_t8uint32_t11ImageFormat"></span><span id="_CPPv2N6Coffee7Texture6CreateE8uint32_t8uint32_t11ImageFormat"></span><span id="Coffee::Texture::Create__uint32_t.uint32_t.ImageFormat"></span><span class="target" id="classCoffee_1_1Texture_1ae07415f6a9e8ca5a02742595663fac88"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee7TextureE" title="Coffee::Texture"><span class="n"><span class="pre">Texture</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <a class="reference internal" href="#_CPPv411ImageFormat" title="ImageFormat"><span class="n"><span class="pre">ImageFormat</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">format</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee7Texture6CreateE8uint32_t8uint32_t11ImageFormat" title="Link to this definition"></a><br /></dt>
+<dd><p>Creates a texture with the specified width, height, and format. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> – The width of the texture. </p></li>
+<li><p><strong>height</strong> – The height of the texture. </p></li>
+<li><p><strong>format</strong> – The format of the texture. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A reference to the created texture. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </dd></dl>
 
 <dl class="cpp class">
@@ -4746,6 +5102,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii">
 <span id="_CPPv3N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii"></span><span id="_CPPv2N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii"></span><span id="Coffee::PrimitiveMesh::CreateCube__glm::vec3CR.i.i.i"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a83ff993845d5fb8507b26e8b8525f9a0"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCube</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">size</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">}</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subdivideW</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subdidiveH</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subdivideD</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh10CreateCubeERKN3glm4vec3Eiii" title="Link to this definition"></a><br /></dt>
 <dd><p>Creates a cube mesh. </p>
+<p>Creates a cube mesh. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -4753,10 +5110,17 @@
 <li><p><strong>subdivideW</strong> – Number of subdivisions along the width. </p></li>
 <li><p><strong>subdivideH</strong> – Number of subdivisions along the height. </p></li>
 <li><p><strong>subdivideD</strong> – Number of subdivisions along the depth. </p></li>
+<li><p><strong>size</strong> – The size of the cube. </p></li>
+<li><p><strong>subdivideW</strong> – Subdivision parameter for width (currently not functional). </p></li>
+<li><p><strong>subdivideH</strong> – Subdivision parameter for height (currently not functional). </p></li>
+<li><p><strong>subdivideD</strong> – Subdivision parameter for depth (currently not functional). </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A reference to the created cube mesh. </p>
+<dd class="field-even"><p>A reference to the created cube mesh.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Ref&lt;Mesh&gt; A reference to the created cube mesh. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -4783,7 +5147,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E">
-<span id="_CPPv3N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"></span><span id="_CPPv2N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"></span><span id="Coffee::PrimitiveMesh::CreatePlane__glm::vec2CR.glm::vec3CR"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1abafd78af69af75eb434ca11cb6d75378"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreatePlane</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec2</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">normal</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">}</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E" title="Link to this definition"></a><br /></dt>
+<span id="_CPPv3N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"></span><span id="_CPPv2N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E"></span><span id="Coffee::PrimitiveMesh::CreatePlane__glm::vec2CR.glm::vec3CR"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a7721f048c8f3b028475f93b937d289e0"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreatePlane</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec2</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">size</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">}</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">glm</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">normal</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">0.0f</span></span><span class="p"><span class="pre">}</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh11CreatePlaneERKN3glm4vec2ERKN3glm4vec3E" title="Link to this definition"></a><br /></dt>
 <dd><p>Creates a plane mesh. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4861,7 +5225,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6Coffee13PrimitiveMesh13CreateCapsuleEffii">
-<span id="_CPPv3N6Coffee13PrimitiveMesh13CreateCapsuleEffii"></span><span id="_CPPv2N6Coffee13PrimitiveMesh13CreateCapsuleEffii"></span><span id="Coffee::PrimitiveMesh::CreateCapsule__float.float.i.i"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a496a180d839d132da62e0f15d9262bab"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCapsule</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radialSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh13CreateCapsuleEffii" title="Link to this definition"></a><br /></dt>
+<span id="_CPPv3N6Coffee13PrimitiveMesh13CreateCapsuleEffii"></span><span id="_CPPv2N6Coffee13PrimitiveMesh13CreateCapsuleEffii"></span><span id="Coffee::PrimitiveMesh::CreateCapsule__float.float.i.i"></span><span class="target" id="classCoffee_1_1PrimitiveMesh_1a351b8bab42d07aa820bc5e4ae847c700"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">Ref</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6Coffee4MeshE" title="Coffee::Mesh"><span class="n"><span class="pre">Mesh</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCapsule</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.5f</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2.0f</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radialSegments</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">64</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rings</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6Coffee13PrimitiveMesh13CreateCapsuleEffii" title="Link to this definition"></a><br /></dt>
 <dd><p>Creates a capsule mesh. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
