@@ -47,10 +47,25 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#about-coffee-engine">About Coffee Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#organization-of-the-documentation">Organization of the documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="system_requirments.html">System Requirments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">List of Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">List of Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#platforms">Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-tools">Debugging Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arquitectura-y-modulos">Arquitectura y Módulos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#renderer">Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-management">Resource Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proyectos-y-escenas">Proyectos y Escenas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editor">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#work-in-progress-and-planned-features">Work In Progress and Planned Features</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">Pitch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
@@ -3340,28 +3355,152 @@
              
   <section id="list-of-features">
 <h1>List of Features<a class="headerlink" href="#list-of-features" title="Link to this heading"></a></h1>
+<section id="platforms">
+<h2>Platforms<a class="headerlink" href="#platforms" title="Link to this heading"></a></h2>
+<p>Using CMake, the project is cross-platform and can be compiled on the following operating systems:</p>
 <ul class="simple">
-<li><p>[x] Compatible with Windows and Linux.</p></li>
-<li><p>[x] 3D Rendering</p>
-<ul>
-<li><p>[x] Textures</p></li>
-<li><p>[x] Materials</p></li>
-<li><p>[x] Shaders</p></li>
-<li><p>[ ] PBR Rendering</p></li>
-<li><p>[ ] Lights</p></li>
-<li><p>[ ] Environment</p></li>
+<li><p>Windows</p></li>
+<li><p>Linux</p></li>
+<li><p>MacOS</p></li>
 </ul>
+<p>It should be possible to compile the project on other platforms as well, but it has not been tested and we don’t have plans to do it.</p>
+<ul class="simple">
+<li><p>Android</p></li>
+<li><p>iOS</p></li>
+</ul>
+</section>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Build System</p></li>
+<li><p>Cross platform</p></li>
+<li><p>Core separado de la aplicación. Es decir que es una libreria separada.</p></li>
+<li><dl class="simple">
+<dt>Organización de código. Como está estructurado el proyecto?</dt><dd><ul>
+<li><p>Abstracción de las librerías. OpenGL, SDL3, etc…</p></li>
+<li><p>Code Patterns</p></li>
+<li><p>Loop</p></li>
+<li><p>Módulos</p></li>
+</ul>
+</dd>
+</dl>
 </li>
-<li><p>[x] Scene System</p>
-<ul>
-<li><p>[x] Scene Tree</p></li>
-<li><p>[x] ECS System</p></li>
-<li><p>[x] Model Loading</p></li>
+<li><p>Gestión del proyecto (Kanban + Github)</p></li>
 </ul>
+</section>
+<section id="debugging-tools">
+<h2>Debugging Tools<a class="headerlink" href="#debugging-tools" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Tracy</p></li>
+</ul>
+</section>
+<section id="arquitectura-y-modulos">
+<h2>Arquitectura y Módulos<a class="headerlink" href="#arquitectura-y-modulos" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Layer System</p></li>
+<li><p>Event Dispatcher System</p></li>
+<li><p>Multiplatform System Information Class</p></li>
+<li><p>Colored Logging System by Severity</p></li>
+<li><p>Extra Utils (Timer, Stopwatch)</p></li>
+</ul>
+</section>
+<section id="renderer">
+<h2>Renderer<a class="headerlink" href="#renderer" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Debug Renderer</p></li>
+<li><p>Forward Renderer</p></li>
+<li><p>PBR Rendering (IBL WIP)</p></li>
+<li><p>Cubemaps</p></li>
+<li><p>Shaders combinados</p></li>
+<li><p>Materiales</p></li>
+<li><p>Texturas</p></li>
+<li><p>Modelos</p></li>
+<li><p>Render Batching</p></li>
+<li><p>Octree Static Frustum Culling</p></li>
+<li><p>Loose Octree Dynamic Frustum Culling (TODO)</p></li>
+<li><p>Camera</p></li>
+<li><p>Lighting</p></li>
+<li><p>HDR Rendering</p></li>
+<li><p>Tonemapping (Agx)</p></li>
+<li><dl class="simple">
+<dt>OpenGL Abstraction</dt><dd><ul>
+<li><p>Vertex Array</p></li>
+<li><p>Vertex Buffer</p></li>
+<li><p>Index Buffer</p></li>
+<li><p>Shader</p></li>
+<li><p>Framebuffers</p></li>
+<li><p>Texture2D</p></li>
+<li><p>Cubemap</p></li>
+<li><p>Uniform Buffers</p></li>
+<li><p>Buffer Layouts</p></li>
+</ul>
+</dd>
+</dl>
 </li>
-<li><p>[x] Editor</p></li>
-<li><p>[ ] Save And Loading</p></li>
+<li><p>Bounding Boxes (AABB y OBB)</p></li>
 </ul>
+</section>
+<section id="resource-management">
+<h2>Resource Management<a class="headerlink" href="#resource-management" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Resource Registry</p></li>
+<li><p>Resource Loader + Importer</p></li>
+<li><p>Resource Format</p></li>
+<li><p>Resource Caching</p></li>
+<li><p>File Watcher TODO</p></li>
+<li><p>Embedded Assets</p></li>
+<li><p>Metadata</p></li>
+<li><p>UUID</p></li>
+</ul>
+</section>
+<section id="proyectos-y-escenas">
+<h2>Proyectos y Escenas<a class="headerlink" href="#proyectos-y-escenas" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Proyectos</p></li>
+<li><dl class="simple">
+<dt>Escenas</dt><dd><ul>
+<li><dl class="simple">
+<dt>ECS</dt><dd><ul>
+<li><p>Explicación</p></li>
+<li><p>Lista de Componentes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Primitives</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Serialización</p></li>
+</ul>
+</section>
+<section id="editor">
+<h2>Editor<a class="headerlink" href="#editor" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Mouse picking</p></li>
+<li><p>Log Panel (Editor)</p></li>
+<li><p>Drag and Drop (Editor)</p></li>
+<li><p>highDPI Support</p></li>
+<li><dl class="simple">
+<dt>Editor Camera</dt><dd><ul>
+<li><p>Orbit Mode</p></li>
+<li><p>FPS Mode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Editor Features</p></li>
+</ul>
+</section>
+<section id="work-in-progress-and-planned-features">
+<h2>Work In Progress and Planned Features<a class="headerlink" href="#work-in-progress-and-planned-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Runtime Application</p></li>
+<li><p>Scripting</p></li>
+<li><p>Arquitectura para soportar más lenguajes de scripting</p></li>
+</ul>
+</section>
 </section>
 
 
