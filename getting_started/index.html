@@ -58,6 +58,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#styling">Styling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#features-wip">Features (WIP)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">About</span></p>
@@ -1268,6 +1269,160 @@ make -j $(nproc) CoffeeEditor
 <h3>3. Enjoy!<a class="headerlink" href="#enjoy" title="Link to this heading"></a></h3>
 </section>
 </section>
+</section>
+<section id="styling">
+<h1>Styling<a class="headerlink" href="#styling" title="Link to this heading"></a></h1>
+<p>The project uses clang-format to enforce a consistent coding style. There is also this code block in this website as an example of the style used in the project.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>cpp
+// Includes
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;unordered_map&gt;</p>
+<p>// Constexpr over Defines
+constexpr int MAX_SPEED = 5 /<em>over #define MAX_SPEED = 5</em>/</p>
+<p>// Constants
+const int SOME_NUMBER = 42;
+const std::string GREETING = “Hello, World!”;</p>
+<p>// Enums
+enum class Named
+{</p>
+<blockquote>
+<div><p>Thing1,
+Thing2,
+AnotherThing = -1</p>
+</div></blockquote>
+<p>};</p>
+<p>enum class Types
+{</p>
+<blockquote>
+<div><p>PERSPECTIVE,
+ORTHOGRAPHIC</p>
+</div></blockquote>
+<p>};</p>
+<p>// Example Class
+class MyClass
+{</p>
+<blockquote>
+<div><dl>
+<dt>public:</dt><dd><p>//Public variables
+int PublicNumber = 5;</p>
+</dd>
+<dt>public:</dt><dd><p>// Constructor
+MyClass() : m_IntNumber(5), m_Name(“Luigi Mangione 🫶”),</p>
+<blockquote>
+<div><p>m_Numbers({1, 2, 3}), m_Dictionary({ {“key”, 1} };)</p>
+</div></blockquote>
+<dl>
+<dt>{</dt><dd><blockquote>
+<div><p>// Note that there is COFFEE_INFO and COFFEE_CORE_INFO
+// depending on the case you should use the proper one.</p>
+</div></blockquote>
+<p>COFFEE_CORE_INFO(“Constructed!”);
+COFFEE_INFO(“{0}, me caso”, m_Name);</p>
+</dd>
+</dl>
+<p>}</p>
+<p>// Example function
+int SomeFunction(int param1, int param2, int param3)
+{</p>
+<blockquote>
+<div><p>const int localConst = 5;</p>
+<p>if (param1 &lt; localConst)
+{</p>
+<blockquote>
+<div><p>COFFEE_INFO(“param1: {0}”, param1);</p>
+</div></blockquote>
+<p>}
+else if (param2 &gt; 5)
+{</p>
+<blockquote>
+<div><p>COFFEE_INFO(“param2: {0}”, param2);</p>
+</div></blockquote>
+<p>}
+else
+{</p>
+<blockquote>
+<div><p>COFFEE_ERROR(“Fail!”);</p>
+</div></blockquote>
+<p>}</p>
+<p>for (int i = 0; i &lt; 20; ++i)
+{</p>
+<blockquote>
+<div><p>COFFEEINFO(“Loop index: {0}”, i);</p>
+</div></blockquote>
+<p>}</p>
+<blockquote>
+<div><blockquote>
+<div><p>vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+for (int i : arr)
+{
+COFFEE_INFO(“{0} “, i);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>while (param2 != 0)
+{</p>
+<blockquote>
+<div><p>–param2;</p>
+</div></blockquote>
+<p>}</p>
+<blockquote>
+<div><p>Types type = Types::PERSPECTIVE</p>
+</div></blockquote>
+<p>switch (type)
+{</p>
+<blockquote>
+<div><blockquote>
+<div><p>using enum Types;</p>
+</div></blockquote>
+<p>case PERSPECTIVE:
+{</p>
+<blockquote>
+<div><p>COFFEE_INFO(“type is PERSPECTIVE!”);
+break;</p>
+</div></blockquote>
+<p>}
+case ORTHOGRAPHIC:
+{</p>
+<blockquote>
+<div><p>COFFEE_INFO(“type is ORTHOGRAPHIC!”);</p>
+</div></blockquote>
+<p>}
+default:
+{</p>
+<blockquote>
+<div><p>COFFEE_INFO(“type is not a type of the enum!”);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+<p>return param1 + 3;</p>
+</div></blockquote>
+<p>}</p>
+<p>// Nested class
+class NestedClass
+{</p>
+<blockquote>
+<div><blockquote>
+<div><p>public:</p>
+</div></blockquote>
+<p>int nestedValue = 10;</p>
+</div></blockquote>
+<p>};</p>
+<p>// Function overriding
+virtual void Something(int p1, int p2) override;</p>
+</dd>
+<dt>private:</dt><dd><blockquote>
+<div><p>// Member variables</p>
+</div></blockquote>
+<p>int m_IntNumber;
+std::string m_Name;
+std::vector&lt;int&gt; m_Numbers;
+std::unordered_map&lt;std::string, int&gt; m_Dictionary;</p>
+</dd>
+</dl>
+</div></blockquote>
 </section>
 <section id="features-wip">
 <h1>Features (WIP)<a class="headerlink" href="#features-wip" title="Link to this heading"></a></h1>
