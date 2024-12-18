@@ -9,7 +9,7 @@ Be sure to check the code :ref:`guidelines <Styling>` of the project to reduce t
 
 Buildsystem and work environment
 --------------------------------
-We assume that you have already have :ref:`cloned <getting_source>` the project.
+We assume that you have already have :ref:`cloned <Getting the source>` the project.
 
 Configuring an IDE
 ^^^^^^^^^^^^^^^^^^
