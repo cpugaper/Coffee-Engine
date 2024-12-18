@@ -3360,10 +3360,51 @@
 <section id="setting-up-the-project">
 <h2>Setting up the project<a class="headerlink" href="#setting-up-the-project" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Open CLion and navigate to <strong>Preferences &gt; Build, Execution, Deployment &gt; Custom Build Targets</strong></p></li>
+<li><p>First you need to clone the project from the repository. You can do this by via the command line or by using the <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> application.</p></li>
+<li><p>Open CLion and select <strong>Open</strong> from the welcome screen or <strong>File &gt; Open</strong> from the menu bar. Navigate to the project directory and open the root folder.</p></li>
+<li><p>It will pop up a Project Wizard dialog. Change the Toolchain field to Visual Studio to use MSVC compiler, if you have gcc or other compiler, select the one you prefer.</p></li>
 </ul>
 <figure class="align-center">
-<img alt="getting_started/configuring_an_ide/img/clion-preferences.png" src="getting_started/configuring_an_ide/img/clion-preferences.png" />
+<img alt="../../_images/coffee1.png" src="../../_images/coffee1.png" />
+</figure>
+<p>Then press <cite>OK</cite>.</p>
+<ul class="simple">
+<li><p>CLion will open it’s default project view. You can see the project structure on the left side of the window. It’s normal to see some errors in the project view, as the project is not yet configured.</p></li>
+<li><p>You have to open the vcpkg view in the sidebar and install the dependencies. Go to <strong>View &gt; Tool Windows &gt; vcpkg</strong> or in the sidebar just click to “…” and select vcpkg.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/coffee2.png" src="../../_images/coffee2.png" />
+</figure>
+<ul class="simple">
+<li><p>When you open the vcpkg view, you will see a list of dependencies. Before installing them, you have to press the edit button and in the opened dialog, set the current profile to be integrated to vcpkg.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/coffee3.png" src="../../_images/coffee3.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../_images/coffee4.png" src="../../_images/coffee4.png" />
+</figure>
+<ul class="simple">
+<li><p>Then in the CMake tab, it will automatically start downloading the dependencies and compiling them. This process may take a while, up to 20 minutes. When the terminal shows “[Finished]”, you’re ready to go.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/coffee5.png" src="../../_images/coffee5.png" />
+</figure>
+<ul class="simple">
+<li><p>Now you have to select the target you want to run. You can do this by clicking the target dropdown on the top right corner of the window. Select the target you want to run. In this case is Coffee-Editor.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/coffee6.png" src="../../_images/coffee6.png" />
+</figure>
+<p>NOTE: if the Refreshing files… step take too long, just cancel the process and launch the game again.</p>
+<figure class="align-center">
+<img alt="../../_images/coffee7.png" src="../../_images/coffee7.png" />
+</figure>
+<ul class="simple">
+<li><p>Finally you can run the project by pressing the green play button on the top right corner of the window.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/coffee8.png" src="../../_images/coffee8.png" />
 </figure>
 </section>
 </section>
