@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visual Studio Setup Guide &mdash; Coffee Engine 0.2.0 documentation</title>
+  <title>Visual Studio &mdash; Coffee Engine 0.2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=22d996e0" />
@@ -20,9 +20,7 @@
       <script src="../../_static/custom.js?v=6679e8c2"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Visual Studio Code" href="visual_studio_code.html" />
-    <link rel="prev" title="CLion" href="clion.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -69,16 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../about/pitch.html">Pitch</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuring an IDE</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="clion.html">CLion</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="clion.html#setting-up-the-project">Setting up the project</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Visual Studio Setup Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visual_studio_code.html">Visual Studio Code</a></li>
-</ul>
-</li>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../styling.html">Styling</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Class reference:</span></p>
@@ -3332,8 +3321,7 @@
     <ul class="wy-breadcrumbs">
         
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Configuring an IDE</a></li>
-      <li class="breadcrumb-item active">Visual Studio Setup Guide</li>
+      <li class="breadcrumb-item active">Visual Studio</li>
     </ul>
 </li>
 
@@ -3354,31 +3342,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="visual-studio-setup-guide">
-<h1>Visual Studio Setup Guide<a class="headerlink" href="#visual-studio-setup-guide" title="Link to this heading"></a></h1>
-<ol class="arabic">
-<li><dl>
-<dt>Clone the repository:</dt><dd><ul class="simple">
-<li><p>Github Desktop</p></li>
-<li><p>git</p></li>
+  <section id="visual-studio">
+<h1>Visual Studio<a class="headerlink" href="#visual-studio" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://visualstudio.microsoft.com">Visual Studio Community</a> is a Windows-only IDE
+by <a class="reference external" href="https://microsoft.com">Microsoft</a> that’s free for individual use or non-commercial use within organizations.
+It has many useful features, such as memory view, performance view, source
+control and more.</p>
+<section id="enable-vcpkg">
+<h2>Enable vcpkg:<a class="headerlink" href="#enable-vcpkg" title="Link to this heading"></a></h2>
+<section id="if-you-have-administrator-permissions">
+<h3>If you have administrator permissions:<a class="headerlink" href="#if-you-have-administrator-permissions" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://devblogs.microsoft.com/cppblog/vcpkg-is-now-included-with-visual-studio/">https://devblogs.microsoft.com/cppblog/vcpkg-is-now-included-with-visual-studio/</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">--recursive</span> <span class="pre">https://github.com/Brewing-Team/Coffee-Engine.git</span>
-<span class="pre">`</span></code></p>
+</div></blockquote>
+</section>
+<section id="if-you-don-t-have-administrator-permissions">
+<h3>If you don’t have administrator permissions:<a class="headerlink" href="#if-you-don-t-have-administrator-permissions" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Use the script (recommended option):</dt><dd><p>&gt; TODO</p>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt>Enable vcpkg:</dt><dd><ul>
-<li><p>If you have administrator permissions:
-<cite>https://devblogs.microsoft.com/cppblog/vcpkg-is-now-included-with-visual-studio/</cite></p></li>
-<li><dl>
-<dt>If you don’t have administrator permissions:</dt><dd><ul>
-<li><p>Use the script (recommended option):
-&gt; TODO</p></li>
-<li><p>Manual installation:
-<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash
-# Go to the user folder (optional)
+<li><p>Manual installation:</p></li>
+</ul>
+<dl>
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash</dt><dd><p># Go to the user folder (optional)
 cd %UserProfile%</p>
 <p># Clone vcpkg in a folder of your choice
 git clone <a class="reference external" href="https://github.com/microsoft/vcpkg.git">https://github.com/microsoft/vcpkg.git</a></p>
@@ -3388,19 +3380,17 @@ cd vcpkg
 <p># Integrate this vcpkg instance into the system
 .vcpkg.exe integrate install</p>
 <p># Set the user environment variable
-setx VCPKG_ROOT .
-<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
-</li>
-</ul>
+setx VCPKG_ROOT .</p>
 </dd>
 </dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Open the project:</dt><dd><ul class="simple">
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+</div></blockquote>
+</section>
+</section>
+<section id="open-the-project">
+<h2>Open the project:<a class="headerlink" href="#open-the-project" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
 <li><dl class="simple">
 <dt>Two ways:</dt><dd><ul>
 <li><p>Right-click on the project folder and select <strong>Open with Visual Studio</strong>.</p></li>
@@ -3410,82 +3400,51 @@ setx VCPKG_ROOT .
 </dl>
 </li>
 </ul>
+</div></blockquote>
+</section>
+<section id="once-visual-studio-is-opened">
+<h2>Once Visual Studio is opened:<a class="headerlink" href="#once-visual-studio-is-opened" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><dl>
+<dt>Ensure there are no errors and that <strong>– Running vcpkg install</strong> appears in the output window.</dt><dd><img alt="Output window showing vcpkg install" src="../../_images/Ventana-Salida-Correcto-Primera-Apertura.png" />
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Once Visual Studio is opened:</dt><dd><ol class="arabic">
-<li><p>Ensure there are no errors and that <strong>– Running vcpkg install</strong> appears in the output window.
-.. image:: img/Ventana-Salida-Correcto-Primera-Apertura.png</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">alt<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Output window showing vcpkg install</p>
+<dt>Wait until you see <strong>CMake generation has finished</strong> in the output.</dt><dd><img alt="Output window showing CMake generation finished" src="../../_images/Ventana-Salida-Correcto-Esperar.png" />
 </dd>
 </dl>
-</div></blockquote>
-</li>
-<li><p>Wait until you see <strong>CMake generation has finished</strong> in the output.
-.. image:: img/Ventana-Salida-Correcto-Esperar.png</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">alt<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Output window showing CMake generation finished</p>
-</dd>
-</dl>
-</div></blockquote>
 </li>
 </ol>
+</section>
+<section id="run-the-engine">
+<h2>Run the Engine:<a class="headerlink" href="#run-the-engine" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><dl>
+<dt>Select the project to compile:</dt><dd><img alt="Selecting project to compile" src="../../_images/Seleccionar-Proyecto.png" />
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt>Run the Engine:</dt><dd><ol class="arabic">
-<li><p>Select the project to compile:
-.. image:: img/Seleccionar-Proyecto.png</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">alt<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Selecting project to compile</p>
+<dt>Press the <strong>Play</strong> button:</dt><dd><img alt="Press the Play button to run the project" src="../../_images/Ejecutar.png" />
 </dd>
 </dl>
-</div></blockquote>
-</li>
-<li><p>Press the <strong>Play</strong> button:
-.. image:: img/Ejecutar.png</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">alt<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Press the Play button to run the project</p>
-</dd>
-</dl>
-</div></blockquote>
 </li>
 </ol>
-</dd>
-</dl>
-</li>
-<li><p>Hope nothing fails.</p></li>
-<li><p>Enjoy!
-.. image:: img/Resultado.png</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">alt<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The result after running the engine</p>
-</dd>
-</dl>
-</div></blockquote>
-</li>
-</ol>
+</section>
+<section id="hope-nothing-fails-0-o">
+<h2>Hope nothing fails 0-o<a class="headerlink" href="#hope-nothing-fails-0-o" title="Link to this heading"></a></h2>
+</section>
+<section id="enjoy">
+<h2>Enjoy!<a class="headerlink" href="#enjoy" title="Link to this heading"></a></h2>
+<img alt="The result after running the engine" src="../../_images/Resultado.png" />
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="clion.html" class="btn btn-neutral float-left" title="CLion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="visual_studio_code.html" class="btn btn-neutral float-right" title="Visual Studio Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
