@@ -15,8 +15,10 @@ Configuring an IDE
 ^^^^^^^^^^^^^^^^^^
 For easy development of Coffee-Engine we recommend this IDEs:
 
-:ref:`Visual Studio`
-:ref:`CLion`
-:ref:`Visual Studio Code`
+.. toctree::
+   :maxdepth: 2
+    visual_studio
+    clion
+    visual_studio_code
 
 Other IDE's and editors have being tested (KDevelop and neovim), but is apt to you to learn how to configure it.
