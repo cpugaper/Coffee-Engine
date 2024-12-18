@@ -16,7 +16,9 @@ Configuring an IDE
 For easy development of Coffee-Engine we recommend this IDEs:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :name: toc-devel-configuring_an_ide
+
     visual_studio
     clion
     visual_studio_code
