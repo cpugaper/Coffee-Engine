@@ -1,6 +1,7 @@
 #include "EditorLayer.h"
 
 #include "CoffeeEngine/Core/Application.h"
+#include "CoffeeEngine/Core/Assert.h"
 #include "CoffeeEngine/Core/Base.h"
 #include "CoffeeEngine/Core/FileDialog.h"
 #include "CoffeeEngine/Core/Input.h"
@@ -18,6 +19,7 @@
 #include "CoffeeEngine/Scene/Components.h"
 #include "CoffeeEngine/Scene/PrimitiveMesh.h"
 #include "CoffeeEngine/Scene/Scene.h"
+#include "CoffeeEngine/Scene/SceneCamera.h"
 #include "CoffeeEngine/Scene/SceneTree.h"
 #include "Panels/SceneTreePanel.h"
 #include "entt/entity/entity.hpp"
@@ -53,10 +55,11 @@ namespace Coffee {
 
         m_EditorCamera = EditorCamera(45.0f);
 
-        m_ActiveScene->OnInit();
+        m_ActiveScene->OnInitEditor();
 
         m_SceneTreePanel.SetContext(m_ActiveScene);
         m_ContentBrowserPanel.SetContext(m_ActiveScene);
+        m_ImportPanel.SetContext(m_ActiveScene);
     }
 
     void EditorLayer::OnUpdate(float dt)
@@ -146,7 +149,7 @@ namespace Coffee {
 
                     uint32_t entityID = (r << 0) | (g << 8) | (b << 16);
 
-                    Entity hoveredEntity = entityID == -1 ? Entity() : Entity((entt::entity)entityID, m_ActiveScene.get());
+                    Entity hoveredEntity = entityID == 16777215 ? Entity() : Entity((entt::entity)entityID, m_ActiveScene.get());
 
                     m_SceneTreePanel.SetSelectedEntity(hoveredEntity);
                 }
@@ -179,7 +182,7 @@ namespace Coffee {
     {
         ZoneScoped;
 
-        m_ActiveScene->OnExit();
+        m_ActiveScene->OnExitEditor();
     }
 
     void EditorLayer::OnImGuiRender()
@@ -251,13 +254,13 @@ namespace Coffee {
                 case SceneState::Edit:
                     if(ImGui::Button(ICON_LC_PLAY))
                     {
-                        m_SceneState = SceneState::Play;
+                        OnScenePlay();
                     }
                 break;
                 case SceneState::Play:
-                    if(ImGui::Button(ICON_LC_PAUSE))
+                    if(ImGui::Button(ICON_LC_SQUARE))
                     {
-                        m_SceneState = SceneState::Edit;
+                        OnSceneStop();
                     }
                 break;
             }
@@ -295,6 +298,11 @@ namespace Coffee {
         m_ContentBrowserPanel.OnImGuiRender();
         m_OutputPanel.OnImGuiRender();
         m_MonitorPanel.OnImGuiRender();
+        if (m_ContentBrowserPanel.GetSelectedResource() != nullptr)
+        {
+            m_ImportPanel.selectedResource = m_ContentBrowserPanel.GetSelectedResource();
+        }
+        m_ImportPanel.OnImGuiRender();
 
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
         ImGui::Begin("Viewport");
@@ -526,7 +534,7 @@ namespace Coffee {
         }
         if(ImGui::Button("Add Point"))
         {
-            m_ActiveScene->m_Octree.Insert({{rand() % 20 - 10, rand() % 20 - 10, rand() % 20 - 10}});
+            //m_ActiveScene->m_Octree.Insert({{rand() % 20 - 10, rand() % 20 - 10, rand() % 20 - 10}});
         }
         ImGui::End();
     }
@@ -536,7 +544,7 @@ namespace Coffee {
         Renderer::BeginOverlay(m_EditorCamera);
 
         Entity selectedEntity = m_SceneTreePanel.GetSelectedEntity();
-        static Entity lastSelectedEntity;
+        static Entity lastSelectedEntity;  
 
         if(selectedEntity)
         {
@@ -548,7 +556,7 @@ namespace Coffee {
 
                 if(meshComponent.drawAABB)
                 {
-                    const AABB& aabb = meshComponent.mesh->GetAABB(transform);
+                    const AABB& aabb = meshComponent.mesh->GetAABB().CalculateTransformedAABB(transform);
                     DebugRenderer::DrawBox(aabb, {0.27f, 0.52f, 0.53f, 1.0f});
                 }
 
@@ -558,7 +566,9 @@ namespace Coffee {
                 DebugRenderer::DrawBox(obb, {0.99f, 0.50f, 0.09f, 1.0f});
 
 
-            } else if (selectedEntity != lastSelectedEntity) {
+            }
+            else if (selectedEntity != lastSelectedEntity)
+            {
                 // TODO generate defaults bounding boxes for when the entity does not have a mesh component
                 lastSelectedEntity = selectedEntity;
                 COFFEE_CORE_WARN("Not printing bounding box: Selected entity {0} does not have a MeshComponent.", selectedEntity.GetComponent<TagComponent>().Tag);
@@ -590,6 +600,18 @@ namespace Coffee {
             }
         }
 
+        auto cameraView = m_ActiveScene->GetAllEntitiesWithComponents<CameraComponent, TransformComponent>();
+
+        for(auto entity : cameraView)
+        {
+            auto& cameraComponent = cameraView.get<CameraComponent>(entity);
+            auto& transformComponent = cameraView.get<TransformComponent>(entity);
+
+            glm::mat4 viewProjection = cameraComponent.Camera.GetProjection() * glm::inverse(transformComponent.GetWorldTransform());
+
+            DebugRenderer::DrawFrustum(viewProjection, {0.99f, 0.50f, 0.09f, 1.0f});
+        }
+
         DebugRenderer::DrawLine({-1000.0f, 0.0f, 0.0f}, {1000.0f, 0.0f, 0.0f}, {0.918f, 0.196f, 0.310f, 1.0f}, 2);
         DebugRenderer::DrawLine({0.0f, -1000.0f, 0.0f}, {0.0f, 1000.0f, 0.0f}, {0.502f, 0.800f, 0.051f, 1.0f}, 2);
         DebugRenderer::DrawLine({0.0f, 0.0f, -1000.0f}, {0.0f, 0.0f, 1000.0f}, {0.153f, 0.525f, 0.918f, 1.0f}, 2);
@@ -614,6 +636,43 @@ namespace Coffee {
         }
 
         m_ViewportSize = { width, height };
+    }
+
+    void EditorLayer::OnScenePlay()
+    {
+        if(m_ActiveScene->m_FilePath.empty())
+        {
+            COFFEE_ERROR("Scene is not saved! Please save the scene before playing.");
+            return;
+        }
+
+        m_SceneState = SceneState::Play;
+
+        Scene::Save(m_EditorScene->m_FilePath, m_EditorScene);
+
+        m_ActiveScene = Scene::Load(m_ActiveScene->m_FilePath);
+        m_ActiveScene->OnInitRuntime();
+
+        m_SceneTreePanel.SetContext(m_ActiveScene);
+        m_SceneTreePanel.SetSelectedEntity(Entity());
+        m_ContentBrowserPanel.SetContext(m_ActiveScene);
+        m_ImportPanel.SetContext(m_ActiveScene);
+    }
+
+    void EditorLayer::OnSceneStop()
+    {
+        COFFEE_CORE_ASSERT(m_SceneState == SceneState::Play)
+        
+        m_ActiveScene->OnExitRuntime();
+
+        m_SceneState = SceneState::Edit;
+
+        m_ActiveScene = m_EditorScene;
+
+        m_SceneTreePanel.SetContext(m_ActiveScene);
+        m_SceneTreePanel.SetSelectedEntity(Entity());
+        m_ContentBrowserPanel.SetContext(m_ActiveScene);
+        m_ImportPanel.SetContext(m_ActiveScene);
     }
 
     void EditorLayer::NewProject()
@@ -659,13 +718,15 @@ namespace Coffee {
 
     void EditorLayer::NewScene()
     {
-        m_ActiveScene = CreateRef<Scene>();
-        m_ActiveScene->OnInit();
+        m_EditorScene = CreateRef<Scene>();
+        m_ActiveScene = m_EditorScene;
+        m_ActiveScene->OnInitEditor();
 
         m_SceneTreePanel = SceneTreePanel();
 
         m_SceneTreePanel.SetContext(m_ActiveScene);
         m_ContentBrowserPanel.SetContext(m_ActiveScene);
+        m_ImportPanel.SetContext(m_ActiveScene);
     }
 
     void EditorLayer::OpenScene()
@@ -674,15 +735,17 @@ namespace Coffee {
         args.Filters = {{"Coffee Scene", "TeaScene"}};
         const std::filesystem::path& path = FileDialog::OpenFile(args);
 
-        if (!path.empty())
+        if (!path.empty() and path.extension() == ".TeaScene")
         {
-            m_ActiveScene = Scene::Load(path);
-            m_ActiveScene->OnInit();
+            m_EditorScene = Scene::Load(path);
+            m_ActiveScene = m_EditorScene;
+            m_ActiveScene->OnInitEditor();
 
             m_SceneTreePanel = SceneTreePanel();
 
             m_SceneTreePanel.SetContext(m_ActiveScene);
             m_ContentBrowserPanel.SetContext(m_ActiveScene);
+            m_ImportPanel.SetContext(m_ActiveScene);
         }
         else
         {

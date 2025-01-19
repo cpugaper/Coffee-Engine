@@ -42,8 +42,20 @@ namespace Coffee {
                 auto lastHierarchy = registry.try_get<HierarchyComponent>(lastEntity);
                 while(lastHierarchy != nullptr && lastHierarchy->m_Next != entt::null)
                 {
-                    lastEntity = lastHierarchy->m_Next;
-                    lastHierarchy = registry.try_get<HierarchyComponent>(lastEntity);
+                    auto nextEntity = lastHierarchy->m_Next;
+                    auto nextHierarchy = registry.try_get<HierarchyComponent>(nextEntity);
+
+                    if(nextHierarchy == nullptr)
+                    {
+                        break;
+                    }
+
+                    lastEntity = nextEntity;
+                    lastHierarchy = nextHierarchy;
+                }
+                if (lastEntity == entity)
+                {
+                    return;
                 }
                 lastHierarchy->m_Next = entity;
                 lastHierarchy->m_Prev = lastEntity;

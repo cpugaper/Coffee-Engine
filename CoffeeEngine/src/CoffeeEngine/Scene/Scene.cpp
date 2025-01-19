@@ -3,11 +3,12 @@
 #include "CoffeeEngine/Core/Base.h"
 #include "CoffeeEngine/Core/DataStructures/Octree.h"
 #include "CoffeeEngine/Core/Log.h"
+#include "CoffeeEngine/Math/Frustum.h"
 #include "CoffeeEngine/Renderer/DebugRenderer.h"
 #include "CoffeeEngine/Renderer/EditorCamera.h"
 #include "CoffeeEngine/Renderer/Material.h"
+#include "CoffeeEngine/Renderer/Mesh.h"
 #include "CoffeeEngine/Renderer/Renderer.h"
-#include "CoffeeEngine/Renderer/Shader.h"
 #include "CoffeeEngine/Scene/Components.h"
 #include "CoffeeEngine/Scene/Entity.h"
 #include "CoffeeEngine/Scene/PrimitiveMesh.h"
@@ -19,10 +20,10 @@
 #include "entt/entity/fwd.hpp"
 #include "entt/entity/snapshot.hpp"
 
-#include "CoffeeEngine/Embedded/MissingShader.inl"
-
 #include <cstdint>
 #include <cstdlib>
+#include <glm/detail/type_quat.hpp>
+#include <glm/fwd.hpp>
 #include <string>
 #include <tracy/Tracy.hpp>
 
@@ -32,13 +33,19 @@
 
 namespace Coffee {
 
-    //TEMPORAL
-    static Ref<Material> missingMaterial;
-
-    Scene::Scene() : m_Octree({glm::vec3(-10.0f), glm::vec3(10.0f)}, 2, 5)
+    Scene::Scene() : m_Octree({glm::vec3(-50.0f), glm::vec3(50.0f)}, 10, 5)
     {
         m_SceneTree = CreateScope<SceneTree>(this);
     }
+
+/*     Scene::Scene(Ref<Scene> other)
+    {
+        auto& srcRegistry = other->m_Registry;
+        auto& dstRegistry = m_Registry;
+
+        auto view = srcRegistry.view<entt::entity>();
+        dstRegistry.insert(view->data(), view->data() + view->size(), view->raw(), view->raw() + view.size());
+    } */
 
     Entity Scene::CreateEntity(const std::string& name)
     {
@@ -67,11 +74,11 @@ namespace Coffee {
         m_Registry.destroy((entt::entity)entity);
     }
 
-    void Scene::OnInit()
+    void Scene::OnInitEditor()
     {
         ZoneScoped;
 
-        Entity light = CreateEntity("Directional Light");
+       /*  Entity light = CreateEntity("Directional Light");
         light.AddComponent<LightComponent>().Color = {1.0f, 0.9f, 0.85f};
         light.GetComponent<TransformComponent>().Position = {0.0f, 0.8f, -2.1f};
         
@@ -92,12 +99,25 @@ namespace Coffee {
         scriptEntity.AddComponent<MaterialComponent>();
 
         //Entity scriptEntity2 = CreateEntity("Script2");
-        //scriptEntity2.AddComponent<ScriptComponent>("assets/scripts/test2.lua", ScriptingLanguage::Lua, m_Registry); // TODO move the registry to the ScriptManager constructor
-        
-        // TEST ------------------------------
-        for(int i = 0; i < 25; i++)
+        //scriptEntity2.AddComponent<ScriptComponent>("assets/scripts/test2.lua", ScriptingLanguage::Lua, m_Registry); // TODO move the registry to the ScriptManager constructor*/
+    }
+
+    void Scene::OnInitRuntime()
+    {
+        ZoneScoped;
+
+        m_SceneTree->Update();
+
+        auto view = m_Registry.view<MeshComponent>();
+
+        for (auto& entity : view)
         {
-            m_Octree.Insert({{rand() % 20 - 10, rand() % 20 - 10, rand() % 20 - 10}});
+            auto& meshComponent = view.get<MeshComponent>(entity);
+            auto& transformComponent = m_Registry.get<TransformComponent>(entity);
+
+            ObjectContainer<Ref<Mesh>> objectContainer = {transformComponent.GetWorldTransform(), meshComponent.GetMesh()->GetAABB(), meshComponent.GetMesh()};
+
+            m_Octree.Insert(objectContainer);
         }
     }
 
@@ -124,7 +144,7 @@ namespace Coffee {
             auto materialComponent = m_Registry.try_get<MaterialComponent>(entity);
 
             Ref<Mesh> mesh = meshComponent.GetMesh();
-            Ref<Material> material = (materialComponent and materialComponent->material) ? materialComponent->material : missingMaterial;
+            Ref<Material> material = (materialComponent) ? materialComponent->material : nullptr;
             
             //Renderer::Submit(material, mesh, transformComponent.GetWorldTransform(), (uint32_t)entity);
             Renderer::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
@@ -197,8 +217,24 @@ namespace Coffee {
 
         //TODO: Add this to a function bc it is repeated in OnUpdateEditor
         Renderer::BeginScene(*camera, cameraTransform);
+
+        m_Octree.DebugDraw();
+
+        // Get all the static meshes from the Octree
+
+        glm::mat4 testProjection = glm::perspective(glm::radians(90.0f), 16.0f / 9.0f, 0.1f, 100.0f);
+
+        Frustum frustum = Frustum(camera->GetProjection() /* testProjection */ * glm::inverse(cameraTransform));
+        DebugRenderer::DrawFrustum(frustum, glm::vec4(1.0f), 1.0f);
+
+        auto meshes = m_Octree.Query(frustum);
+
+        for(auto& mesh : meshes)
+        {
+            Renderer::Submit(RenderCommand{mesh.transform, mesh.object, mesh.object->GetMaterial(), 0});
+        }
         
-        // Get all entities with ModelComponent and TransformComponent
+/*         // Get all entities with ModelComponent and TransformComponent
         auto view = m_Registry.view<MeshComponent, TransformComponent>();
 
         // Loop through each entity with the specified components
@@ -210,10 +246,10 @@ namespace Coffee {
             auto materialComponent = m_Registry.try_get<MaterialComponent>(entity);
 
             Ref<Mesh> mesh = meshComponent.GetMesh();
-            Ref<Material> material = (materialComponent and materialComponent->material) ? materialComponent->material : missingMaterial;
+            Ref<Material> material = (materialComponent) ? materialComponent->material : nullptr;
             
             Renderer::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
-        }
+        } */
 
         //Get all entities with LightComponent and TransformComponent
         auto lightView = m_Registry.view<LightComponent, TransformComponent>();
@@ -238,9 +274,14 @@ namespace Coffee {
         ZoneScoped;
     }
 
-    void Scene::OnExit()
+    void Scene::OnExitEditor()
     {
         ZoneScoped;
+    }
+
+    void Scene::OnExitRuntime()
+    {
+
     }
 
     Ref<Scene> Scene::Load(const std::filesystem::path& path)
@@ -261,6 +302,17 @@ namespace Coffee {
             .get<MeshComponent>(archive)
             .get<MaterialComponent>(archive)
             .get<LightComponent>(archive);
+        
+        scene->m_FilePath = path;
+
+        auto view = scene->m_Registry.view<entt::entity>();
+        for (auto entity : view)
+        {
+            auto& tag = scene->m_Registry.get<TagComponent>(entity);
+            auto& hierarchy = scene->m_Registry.get<HierarchyComponent>(entity);
+
+            COFFEE_INFO("Entity {0}, {1}", (uint32_t)entity, tag.Tag);
+        }
 
         return scene;
     }
@@ -284,6 +336,17 @@ namespace Coffee {
             .get<MeshComponent>(archive)
             .get<MaterialComponent>(archive)
             .get<LightComponent>(archive);
+        
+        scene->m_FilePath = path;
+
+        auto view = scene->m_Registry.view<entt::entity>();
+        for (auto entity : view)
+        {
+            auto& tag = scene->m_Registry.get<TagComponent>(entity);
+            auto& hierarchy = scene->m_Registry.get<HierarchyComponent>(entity);
+
+            COFFEE_INFO("Entity {0}, {1}", (uint32_t)entity, tag.Tag);
+        }
     }
 
     // Is possible that this function will be moved to the SceneTreePanel but for now it will stay here
