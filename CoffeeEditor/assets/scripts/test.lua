@@ -6,46 +6,18 @@
 --[[export]] exampleString = "Hello, ImGui!"
 --[[export]] exampleBool = true
 
-function OnCreate()
+function OnReady()
     print("OnCreate()")
     log("OnCreate()")
     log_error("OnCreate()")
     log_warning("OnCreate()")
     log_critical("OnCreate()")
-    return 1
 end
 
 function OnUpdate()
-    --log("OnUpdate()")
-
-    local entityTag = entity:GetComponent("TagComponent").tag
-    log(entityTag)
-
-    local transform = entity:GetComponent("TransformComponent")
-    local entityPosition = transform.position
-    log(tostring(entityPosition.x) .. ", " .. tostring(entityPosition.y) .. ", " .. tostring(entityPosition.z))
-
-    if input.is_key_pressed(input.keycode.W) then
-        entityPosition.y = entityPosition.y + 0.01
-    end
-    if input.is_key_pressed(input.keycode.A) then
-        entityPosition.x = entityPosition.x - 0.01
-    end
-    if input.is_key_pressed(input.keycode.S) then
-        entityPosition.y = entityPosition.y - 0.01
-    end
-    if input.is_key_pressed(input.keycode.D) then
-        entityPosition.x = entityPosition.x + 0.01
-    end
-
-    log(tostring(entityPosition.x) .. ", " .. tostring(entityPosition.y) .. ", " .. tostring(entityPosition.z))
-
-    if input.is_mouse_button_pressed(input.mousecode.LEFT) then
-        log("LEFT")
-        local x, y = input.get_mouse_position()
-        log("Mouse position: (" .. x .. ", " .. y .. ")")
-    end
-    return 1
+    transform = self:get_component("TransformComponent"):get_world_transform()
+    translation = Vector3.new(1.0, 2.0, 3.0)
+    transform:translate(translation)
 end
 
 function on_destroy()
