@@ -1,12 +1,31 @@
 #pragma once
 
+#include <cereal/external/rapidjson/reader.h>
 #include <entt/entity/registry.hpp>
 
 #include <filesystem>
 #include <functional>
+#include <any>
+#include <unordered_map>
 
 namespace Coffee
 {
+    enum class ExportedVariableType
+    {
+        None,
+        Int,
+        Float,
+        String,
+        Bool
+    };
+
+    struct ExportedVariable
+    {
+        std::string name;
+        std::any value;
+        ExportedVariableType type;
+    };
+
     class Script
     {
     public:
@@ -27,5 +46,11 @@ namespace Coffee
 
         template <typename T>
         T GetVariable(const std::string& name);
+
+        virtual void ParseScript() = 0;
+
+        inline std::unordered_map<std::string, ExportedVariable>& GetExportedVariables() { return m_ExportedVariables; }
+    protected:
+        std::unordered_map<std::string, ExportedVariable> m_ExportedVariables;
     };
 }
