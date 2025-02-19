@@ -287,7 +287,6 @@ namespace Coffee {
         }
     };
     
-    // Move it to the Component.h
     struct ScriptComponent
     {
         Ref<Script> script;

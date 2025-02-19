@@ -743,11 +743,11 @@ namespace Coffee {
                         entity.AddComponent<CameraComponent>();
                     ImGui::CloseCurrentPopup();
                 }
-                else if(items[item_current] == "Script Component")
+                else if(items[item_current] == "Lua Script Component")
                 {
                     if(!entity.HasComponent<ScriptComponent>())
-                        entity.AddComponent<ScriptComponent>();
-                        // TODO add script component
+                        // TODO pop up for the user to select the script or create a new one
+                        // entity.AddComponent<ScriptComponent>("path/to/script.lua", ScriptingLanguage::Lua, m_Context->m_Registry);
                     ImGui::CloseCurrentPopup();
                 }
                 else
