@@ -145,6 +145,7 @@ namespace Coffee {
             m_Octree.Insert(objectContainer);
         }
 
+        /*
         Entity parent = CreateEntity("Parent");
         parent.AddComponent<ScriptComponent>("assets/scripts/test2.lua", ScriptingLanguage::Lua);
 
@@ -154,6 +155,7 @@ namespace Coffee {
         scriptedEntity.AddComponent<ScriptComponent>("assets/scripts/test.lua", ScriptingLanguage::Lua);
 
         scriptedEntity.SetParent(parent);
+
 
         // Test Get Parent
         Entity parent2 = scriptedEntity.GetParent();
@@ -182,6 +184,7 @@ namespace Coffee {
 
             scriptComponent.script->OnReady();
         }
+        */
 
 
     }
@@ -356,7 +359,8 @@ namespace Coffee {
             .get<CameraComponent>(archive)
             .get<MeshComponent>(archive)
             .get<MaterialComponent>(archive)
-            .get<LightComponent>(archive);
+            .get<LightComponent>(archive)
+            .get<ScriptComponent>(archive);
         
         scene->m_FilePath = path;
 
@@ -390,7 +394,8 @@ namespace Coffee {
             .get<CameraComponent>(archive)
             .get<MeshComponent>(archive)
             .get<MaterialComponent>(archive)
-            .get<LightComponent>(archive);
+            .get<LightComponent>(archive)
+            .get<ScriptComponent>(archive);
         
         scene->m_FilePath = path;
 

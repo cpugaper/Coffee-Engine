@@ -304,6 +304,42 @@ namespace Coffee {
                 break;
             }
         }
+
+        /**
+         * @brief Serializes the ScriptComponent.
+         *
+         * This function serializes the ScriptComponent by storing the script path and language.
+         * Note: Currently, this system only supports Lua scripting language.
+         *
+         * @tparam Archive The type of the archive.
+         * @param archive The archive to serialize to.
+         */
+        template<class Archive>
+        void save(Archive& archive) const
+        {
+            //std::string scriptPath = script ? script->GetPath().string() : "";
+            archive(cereal::make_nvp("ScriptPath", std::string(script->GetPath().c_str())), cereal::make_nvp("Language", ScriptingLanguage::Lua)); // TODO this system does not support multiple scripting languages
+        }
+
+        template<class Archive>
+        void load(Archive& archive)
+        {
+            std::string scriptPath;
+            ScriptingLanguage language;
+
+            archive(cereal::make_nvp("ScriptPath", scriptPath), cereal::make_nvp("Language", language));
+
+            switch (language)
+            {
+                using enum ScriptingLanguage;
+            case Lua:
+                script = ScriptManager::CreateScript(scriptPath, language);
+                break;
+            case cSharp:
+                // Handle cSharp script loading if needed
+                break;
+            }
+        }
 /* 
         static void OnConstruct(entt::registry& registry, entt::entity entity)
         {
