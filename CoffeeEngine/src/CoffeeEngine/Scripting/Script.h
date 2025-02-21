@@ -3,13 +3,24 @@
 #include <cereal/external/rapidjson/reader.h>
 #include <entt/entity/registry.hpp>
 
+#include <cereal/archives/binary.hpp>
+#include <cereal/access.hpp>
+#include <cereal/cereal.hpp>
+#include <cereal/types/memory.hpp>
+#include "CoffeeEngine/IO/Serialization/FilesystemPathSerialization.h"
+
 #include <filesystem>
 #include <functional>
 #include <any>
 #include <unordered_map>
+#include <cereal/types/polymorphic.hpp>
+
 
 namespace Coffee
 {
+
+    enum class ScriptingLanguage;
+
     enum class ExportedVariableType
     {
         None,
@@ -30,16 +41,31 @@ namespace Coffee
 
     struct ExportedVariable
     {
-        std::string name;
-        std::any value;
-        ExportedVariableType type;
+        public:
+            std::string name;
+            std::any value;
+            ExportedVariableType type;
+
+        private:
+            friend class cereal::access;
+
+            template<class Archive>
+            void serialize(Archive& archive) const
+            {
+                archive(
+                    cereal::make_nvp("name", name),
+                    cereal::make_nvp("value", value),
+                    cereal::make_nvp("type", type)
+                );
+            }
     };
 
     class Script
     {
     public:
-        Script() {}
+        // Script() {}
         Script(const std::filesystem::path& path) : m_Path(path) {}
+        virtual ~Script() = default;
         virtual void OnReady() = 0;
         virtual void OnUpdate(float dt) = 0;
         virtual void OnExit() = 0;
@@ -66,8 +92,35 @@ namespace Coffee
 
         inline std::unordered_map<std::string, ExportedVariable>& GetExportedVariables() { return m_ExportedVariables; }
 
+    private:
+        friend class cereal::access;
+
+        template<class Archive>
+        void save(Archive& archive) const
+        {
+            archive(
+                cereal::make_nvp("path", m_Path),
+                cereal::make_nvp("language", m_Language),
+                cereal::make_nvp("exported_variables", m_ExportedVariables)
+            );
+        }
+
+        template<class Archive>
+        void load(Archive& archive)
+        {
+            archive(
+                cereal::make_nvp("path", m_Path),
+                cereal::make_nvp("language", m_Language),
+                cereal::make_nvp("exported_variables", m_ExportedVariables)
+            );
+        }
+
     protected:
+        ScriptingLanguage m_Language;
         std::filesystem::path m_Path;
         std::unordered_map<std::string, ExportedVariable> m_ExportedVariables;
     };
+
 }
+
+CEREAL_REGISTER_TYPE(Coffee::Script);

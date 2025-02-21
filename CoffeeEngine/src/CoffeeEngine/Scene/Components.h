@@ -11,6 +11,11 @@
 #include "CoffeeEngine/Renderer/Mesh.h"
 #include "CoffeeEngine/Renderer/Model.h"
 #include "CoffeeEngine/Scene/SceneCamera.h"
+#include "CoffeeEngine/Scripting/Script.h"
+#include "CoffeeEngine/Scripting/ScriptManager.h"
+#include "src/CoffeeEngine/IO/Serialization/GLMSerialization.h"
+#include "CoffeeEngine/IO/ResourceLoader.h"
+
 #include <cereal/cereal.hpp>
 #include <cereal/access.hpp>
 #include <cereal/types/string.hpp>
@@ -18,10 +23,7 @@
 #include <glm/fwd.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include "CoffeeEngine/Scripting/Script.h"
-#include "CoffeeEngine/Scripting/ScriptManager.h"
-#include "src/CoffeeEngine/IO/Serialization/GLMSerialization.h"
-#include "CoffeeEngine/IO/ResourceLoader.h"
+
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
@@ -315,30 +317,9 @@ namespace Coffee {
          * @param archive The archive to serialize to.
          */
         template<class Archive>
-        void save(Archive& archive) const
+        void serialize(Archive& archive)
         {
-            //std::string scriptPath = script ? script->GetPath().string() : "";
-            archive(cereal::make_nvp("ScriptPath", std::string(script->GetPath().c_str())), cereal::make_nvp("Language", ScriptingLanguage::Lua)); // TODO this system does not support multiple scripting languages
-        }
-
-        template<class Archive>
-        void load(Archive& archive)
-        {
-            std::string scriptPath;
-            ScriptingLanguage language;
-
-            archive(cereal::make_nvp("ScriptPath", scriptPath), cereal::make_nvp("Language", language));
-
-            switch (language)
-            {
-                using enum ScriptingLanguage;
-            case Lua:
-                script = ScriptManager::CreateScript(scriptPath, language);
-                break;
-            case cSharp:
-                // Handle cSharp script loading if needed
-                break;
-            }
+            archive(cereal::make_nvp("Script", script));
         }
 /* 
         static void OnConstruct(entt::registry& registry, entt::entity entity)
@@ -354,6 +335,7 @@ namespace Coffee {
 
 
     };
+
 }
 
 /** @} */

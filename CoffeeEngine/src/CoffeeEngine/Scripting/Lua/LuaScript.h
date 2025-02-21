@@ -5,10 +5,16 @@
 #include "CoffeeEngine/Scripting/Lua/LuaBackend.h"
 #include "CoffeeEngine/Scripting/Script.h"
 #include "CoffeeEngine/Scripting/ScriptManager.h"
+#include "CoffeeEngine/IO/Serialization/FilesystemPathSerialization.h"
+
+#include <cereal/access.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/cereal.hpp>
+#include <cereal/types/memory.hpp>
+#include <fstream>
 #include <regex>
 #include <sol/forward.hpp>
 #include <sol/sol.hpp>
-#include <fstream>
 #include <sol/types.hpp>
 
 namespace Coffee {
@@ -16,10 +22,12 @@ namespace Coffee {
     class LuaScript : public Script
     {
     public:
+
         LuaScript(const std::filesystem::path& path) : Script(path)
         {
             //TODO: Think if this is a good way or store it in another way is better
-            const LuaBackend& backend = static_cast<const LuaBackend&>(ScriptManager::GetBackend(ScriptingLanguage::Lua));
+            m_Language = ScriptingLanguage::Lua;
+            const LuaBackend& backend = static_cast<const LuaBackend&>(ScriptManager::GetBackend(m_Language));
             m_Environment = sol::environment(backend.GetLuaState(), sol::create, backend.GetLuaState().globals());
         }
         ~LuaScript() = default;
@@ -194,8 +202,35 @@ namespace Coffee {
                 return ExportedVariableType::None;
             }
         }
+
+        template<class Archive>
+        void save(Archive& archive) const
+        {
+            archive(cereal::base_class<Script>(this));
+        }
+
+        template<class Archive>
+        void load(Archive& archive)
+        {
+            archive(cereal::base_class<Script>(this));
+        }
+
+        template<class Archive>
+        static void load_and_construct(Archive& data, cereal::construct<LuaScript>& construct)
+        {
+            std::filesystem::path path;
+            data(path);
+            construct(path);
+
+            data(cereal::base_class<Script>(construct.ptr()));
+            construct->m_Path = path;
+        }
+
     private:
         sol::environment m_Environment;
     };
 
 }
+
+CEREAL_REGISTER_TYPE(Coffee::LuaScript);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Coffee::Script, Coffee::LuaScript);
