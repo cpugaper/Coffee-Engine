@@ -97,6 +97,8 @@ namespace Coffee
                     layer->OnUpdate(deltaTime);
             }
 
+            Renderer::Render();
+
             //Render ImGui
             m_ImGuiLayer->Begin();
             {
