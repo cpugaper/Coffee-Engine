@@ -3,15 +3,13 @@
 #include "CoffeeEngine/Core/Base.h"
 #include "CoffeeEngine/Core/DataStructures/Octree.h"
 #include "CoffeeEngine/Core/Log.h"
-#include "CoffeeEngine/Math/Frustum.h"
-#include "CoffeeEngine/Renderer/DebugRenderer.h"
 #include "CoffeeEngine/Renderer/EditorCamera.h"
 #include "CoffeeEngine/Renderer/Material.h"
 #include "CoffeeEngine/Renderer/Mesh.h"
 #include "CoffeeEngine/Renderer/Renderer.h"
+#include "CoffeeEngine/Renderer/Renderer3D.h"
 #include "CoffeeEngine/Scene/Components.h"
 #include "CoffeeEngine/Scene/Entity.h"
-#include "CoffeeEngine/Scene/PrimitiveMesh.h"
 #include "CoffeeEngine/Scene/SceneCamera.h"
 #include "CoffeeEngine/Scene/SceneTree.h"
 #include "CoffeeEngine/Scripting/Lua/LuaScript.h"
@@ -167,7 +165,7 @@ namespace Coffee {
 
         m_SceneTree->Update();
 
-        Renderer::BeginScene(camera);
+        Renderer::GetCurrentRenderTarget()->SetCamera(camera, glm::inverse(camera.GetViewMatrix()));
 
         // TEST ------------------------------
         m_Octree.DebugDraw();
@@ -187,7 +185,7 @@ namespace Coffee {
             Ref<Material> material = (materialComponent) ? materialComponent->material : nullptr;
             
             //Renderer::Submit(material, mesh, transformComponent.GetWorldTransform(), (uint32_t)entity);
-            Renderer::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
+            Renderer3D::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
         }
 
         //Get all entities with LightComponent and TransformComponent
@@ -202,10 +200,8 @@ namespace Coffee {
             lightComponent.Position = transformComponent.GetWorldTransform()[3];
             lightComponent.Direction = glm::normalize(glm::vec3(-transformComponent.GetWorldTransform()[1]));
 
-            Renderer::Submit(lightComponent);
+            Renderer3D::Submit(lightComponent);
         }
-
-        Renderer::EndScene();
     }
 
     void Scene::OnUpdateRuntime(float dt)
@@ -246,7 +242,7 @@ namespace Coffee {
         }
 
         //TODO: Add this to a function bc it is repeated in OnUpdateEditor
-        Renderer::BeginScene(*camera, cameraTransform);
+        Renderer::GetCurrentRenderTarget()->SetCamera(*camera, cameraTransform);
 
         m_Octree.DebugDraw();
 
@@ -278,7 +274,7 @@ namespace Coffee {
             Ref<Mesh> mesh = meshComponent.GetMesh();
             Ref<Material> material = (materialComponent) ? materialComponent->material : nullptr;
             
-            Renderer::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
+            Renderer3D::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
         }
 
         //Get all entities with LightComponent and TransformComponent
@@ -293,10 +289,8 @@ namespace Coffee {
             lightComponent.Position = transformComponent.GetWorldTransform()[3];
             lightComponent.Direction = glm::normalize(glm::vec3(-transformComponent.GetWorldTransform()[1]));
 
-            Renderer::Submit(lightComponent);
+            Renderer3D::Submit(lightComponent);
         }
-
-        Renderer::EndScene();
     }
 
     void Scene::OnEvent(Event& e)
