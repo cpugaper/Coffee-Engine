@@ -1,13 +1,17 @@
 #pragma once
 
-#include <cereal/external/rapidjson/reader.h>
 #include <entt/entity/registry.hpp>
 
+#include <cereal/types/unordered_map.hpp>
+#include <cereal/types/variant.hpp> // Add variant header
+
 #include <cereal/archives/binary.hpp>
+#include <cereal/archives/json.hpp>
 #include <cereal/access.hpp>
 #include <cereal/cereal.hpp>
 #include <cereal/types/memory.hpp>
 #include "CoffeeEngine/IO/Serialization/FilesystemPathSerialization.h"
+#include "CoffeeEngine/Scene/Entity.h"
 
 #include <filesystem>
 #include <functional>
@@ -43,14 +47,15 @@ namespace Coffee
     {
         public:
             std::string name;
-            std::any value;
+            // Replace std::any with std::variant
+            std::variant<int, float, std::string, bool, Entity> value;
             ExportedVariableType type;
 
         private:
             friend class cereal::access;
 
             template<class Archive>
-            void serialize(Archive& archive) const
+            void serialize(Archive& archive)
             {
                 archive(
                     cereal::make_nvp("name", name),

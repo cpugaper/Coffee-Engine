@@ -582,7 +582,7 @@ namespace Coffee {
                     {
                     case ExportedVariableType::Bool:
                     {
-                        bool value = variable.value.has_value() ? std::any_cast<bool>(variable.value) : false;
+                        bool value = std::get<bool>(variable.value);
                         if (ImGui::Checkbox(name.c_str(), &value))
                         {
                             std::dynamic_pointer_cast<LuaScript>(scriptComponent.script)->SetVariable(name, value);
@@ -592,7 +592,7 @@ namespace Coffee {
                     }
                     case ExportedVariableType::Int:
                     {
-                        int value = variable.value.has_value() ? std::any_cast<int>(variable.value) : 0;
+                        int value = std::get<int>(variable.value);
                         if (ImGui::InputInt(name.c_str(), &value))
                         {
                             std::dynamic_pointer_cast<LuaScript>(scriptComponent.script)->SetVariable(name, value);
@@ -602,7 +602,7 @@ namespace Coffee {
                     }
                     case ExportedVariableType::Float:
                     {
-                        float value = variable.value.has_value() ? std::any_cast<float>(variable.value) : 0.0f;
+                        float value = std::get<float>(variable.value);
                         if (ImGui::InputFloat(name.c_str(), &value))
                         {
                             std::dynamic_pointer_cast<LuaScript>(scriptComponent.script)->SetVariable(name, value);
@@ -612,7 +612,7 @@ namespace Coffee {
                     }
                     case ExportedVariableType::String:
                     {
-                        std::string value = variable.value.has_value() ? std::any_cast<std::string>(variable.value) : "";
+                        std::string value = std::get<std::string>(variable.value);
                         char buffer[256];
                         memset(buffer, 0, sizeof(buffer));
                         strcpy(buffer, value.c_str());
@@ -625,7 +625,7 @@ namespace Coffee {
                     }
                     case ExportedVariableType::Entity:
                     {
-                        Entity value = variable.value.has_value() ? std::any_cast<Entity>(variable.value) : Entity{};
+                        Entity value = std::get<Entity>(variable.value);
                         if (ImGui::Button(name.c_str()))
                         {
                             ImGui::OpenPopup("EntityPopup");
@@ -761,7 +761,6 @@ namespace Coffee {
                                 scriptFile << "end\n\n";
                                 scriptFile << "function on_exit()\n";
                                 scriptFile << "    -- Add cleanup code here\n";
-                                scriptFile << "end\n";
                                 scriptFile.close();
 
                                 // Add the script component to the entity

@@ -18,6 +18,7 @@
 
 #include <cereal/cereal.hpp>
 #include <cereal/access.hpp>
+#include <cereal/archives/json.hpp>
 #include <cereal/types/string.hpp>
 #include <glm/ext/matrix_transform.hpp>
 #include <glm/fwd.hpp>
@@ -307,33 +308,20 @@ namespace Coffee {
             }
         }
 
-        /**
-         * @brief Serializes the ScriptComponent.
-         *
-         * This function serializes the ScriptComponent by storing the script path and language.
-         * Note: Currently, this system only supports Lua scripting language.
-         *
-         * @tparam Archive The type of the archive.
-         * @param archive The archive to serialize to.
-         */
-        template<class Archive>
-        void serialize(Archive& archive)
-        {
-            archive(cereal::make_nvp("Script", script));
-        }
-/* 
-        static void OnConstruct(entt::registry& registry, entt::entity entity)
-        {
-            auto& scriptComponent = registry.get<ScriptComponent<DerivedScript>>(entity);
+        private:
+            friend class cereal::access;
 
-            if(Editor is in runtime)
+            template<class Archive>
+            void save(Archive& archive) const
             {
-                ScriptManager::ExecuteScript(scriptComponent.script);
-                script.OnScenetreeEntered();
+                   archive(cereal::make_nvp("Script", script));
             }
-        } */
 
-
+            template<class Archive>
+            void load(Archive& archive)
+            {
+                   archive(cereal::make_nvp("Script", script));
+            }
     };
 
 }

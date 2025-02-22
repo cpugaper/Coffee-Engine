@@ -9,6 +9,7 @@
 
 #include <cereal/access.hpp>
 #include <cereal/archives/binary.hpp>
+#include <cereal/archives/json.hpp>
 #include <cereal/cereal.hpp>
 #include <cereal/types/memory.hpp>
 #include <fstream>
@@ -150,7 +151,7 @@ namespace Coffee {
         const sol::environment& GetEnvironment() const { return m_Environment; }
     private:
 
-        void AssignSol2VariableToStdAny(sol::object object, std::any& value)
+        void AssignSol2VariableToStdAny(sol::object object, std::variant<int, float, std::string, bool, Entity>& value)
         {
             switch (object.get_type())
             {
@@ -158,7 +159,10 @@ namespace Coffee {
                 value = object.as<bool>();
                 break;
             case sol::type::number:
-                value = object.as<float>();
+                if (object.is<int>())
+                    value = object.as<int>();
+                else
+                    value = object.as<float>();
                 break;
             case sol::type::string:
                 value = object.as<std::string>();
@@ -168,15 +172,9 @@ namespace Coffee {
                 {
                     value = object.as<Entity>();
                 }
-                else {
-                    value = nullptr;
-                }
-                break;
-            case sol::type::nil:
-                value = nullptr;
                 break;
             default:
-                value = nullptr;
+                value = 0; // Default value for invalid types
                 break;
             }
         }
@@ -203,6 +201,8 @@ namespace Coffee {
             }
         }
 
+        friend class cereal::access;
+
         template<class Archive>
         void save(Archive& archive) const
         {
@@ -219,11 +219,11 @@ namespace Coffee {
         static void load_and_construct(Archive& data, cereal::construct<LuaScript>& construct)
         {
             std::filesystem::path path;
-            data(path);
+            data(std::filesystem::path(path));
             construct(path);
 
             data(cereal::base_class<Script>(construct.ptr()));
-            construct->m_Path = path;
+            construct->m_Path = std::filesystem::path(path);
         }
 
     private:

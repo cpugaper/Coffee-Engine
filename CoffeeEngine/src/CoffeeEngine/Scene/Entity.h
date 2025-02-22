@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <utility>
 #include <vector>
+#include <cereal/access.hpp>
 
 namespace Coffee {
 
@@ -191,10 +192,29 @@ namespace Coffee {
         }
 
     private:
+        friend class cereal::access;
+
         entt::entity m_EntityHandle{ entt::null };
         Scene* m_Scene = nullptr;
     };
 
     /** @} */ // end of scene group
 
+}
+
+// Keep only these free functions for serialization
+namespace cereal {
+    template<class Archive>
+    void save(Archive& archive, const Coffee::Entity& entity)
+    {
+        archive(make_nvp("handle", (uint32_t)(entt::entity)entity));
+    }
+
+    template<class Archive>
+    void load(Archive& archive, Coffee::Entity& entity)
+    {
+        uint32_t handle;
+        archive(make_nvp("handle", handle));
+        entity = Coffee::Entity{(entt::entity)handle, nullptr}; // Scene pointer will need to be set elsewhere
+    }
 }
