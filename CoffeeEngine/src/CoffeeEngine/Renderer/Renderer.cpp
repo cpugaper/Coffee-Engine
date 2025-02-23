@@ -21,6 +21,9 @@
 
 namespace Coffee {
 
+    // TEMPORAL - Animation
+    Ref<AnimationSystem> Renderer::m_AnimationSystem;
+
     static bool s_viewportResized = false;
     static uint32_t s_viewportWidth = 0, s_viewportHeight = 0;
 
@@ -163,6 +166,11 @@ namespace Coffee {
             const Ref<Shader>& shader = material->GetShader();
 
             shader->Bind();
+
+            // TEMPORAL - Animation
+            if (m_AnimationSystem)
+                m_AnimationSystem->SetBoneTransformations(shader);
+
             shader->setMat4("model", command.transform);
             shader->setMat3("normalMatrix", glm::transpose(glm::inverse(glm::mat3(command.transform))));
 

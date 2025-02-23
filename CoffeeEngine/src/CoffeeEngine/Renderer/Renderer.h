@@ -97,6 +97,10 @@ namespace Coffee {
     class Renderer
     {
     public:
+
+        // TEMPORAL - Animation
+        static void Update(float dt) { if (m_AnimationSystem) m_AnimationSystem->Update(dt); }
+
         /**
          * @brief Initializes the renderer.
          */
@@ -195,6 +199,10 @@ namespace Coffee {
     private:
 
         static void ResizeFramebuffers();
+
+    public:
+        // TEMPORAL - Animation
+        static Ref<AnimationSystem> m_AnimationSystem;
 
     private:
         static RendererData s_RendererData; ///< Renderer data.
