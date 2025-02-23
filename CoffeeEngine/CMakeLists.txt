@@ -62,6 +62,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     icon_font_cpp_headers
     ${LUA_LIBRARIES}
     ozz_animation
+    ozz_animation_offline
 )
 
 # Set this in a profile like (Release + Profile)
