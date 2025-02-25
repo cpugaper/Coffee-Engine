@@ -316,6 +316,14 @@ namespace Coffee {
 
 
     };
+
+    class AnimatorComponent {
+    public:
+        AnimatorComponent(const std::shared_ptr<AnimationSystem>& animationSystem)
+            : m_AnimationSystem(animationSystem) {}
+
+        std::shared_ptr<AnimationSystem> m_AnimationSystem;
+    };
 }
 
 /** @} */

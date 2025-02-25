@@ -183,14 +183,21 @@ namespace Coffee {
             auto& transformComponent = view.get<TransformComponent>(entity);
             auto materialComponent = m_Registry.try_get<MaterialComponent>(entity);
 
-            // TEMPORAL - Animation
-            Renderer::Update(dt);
-
             Ref<Mesh> mesh = meshComponent.GetMesh();
             Ref<Material> material = (materialComponent) ? materialComponent->material : nullptr;
             
             //Renderer::Submit(material, mesh, transformComponent.GetWorldTransform(), (uint32_t)entity);
             Renderer::Submit(RenderCommand{transformComponent.GetWorldTransform(), mesh, material, (uint32_t)entity});
+        }
+
+        auto animatorView = m_Registry.view<AnimatorComponent>();
+
+        for (auto& entity : animatorView)
+        {
+            auto& animatorComponent = animatorView.get<AnimatorComponent>(entity);
+            auto& animatorSystem = animatorComponent.m_AnimationSystem;
+
+            animatorSystem->Update(dt);
         }
 
         //Get all entities with LightComponent and TransformComponent
@@ -388,6 +395,9 @@ namespace Coffee {
         static Entity parent;
 
         Entity modelEntity = scene->CreateEntity(model->GetName());
+
+        if (model->GetAnimationSystem())
+            modelEntity.AddComponent<AnimatorComponent>(model->GetAnimationSystem());
 
         if((entt::entity)parent != entt::null)modelEntity.SetParent(parent);
         modelEntity.GetComponent<TransformComponent>().SetLocalTransform(model->GetTransform());

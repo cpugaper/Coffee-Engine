@@ -563,6 +563,26 @@ namespace Coffee {
                 }
             }
         }
+
+        if (entity.HasComponent<AnimatorComponent>())
+        {
+            auto& animatorComponent = entity.GetComponent<AnimatorComponent>();
+            bool isCollapsingHeaderOpen = true;
+            if (ImGui::CollapsingHeader("Animator", &isCollapsingHeaderOpen, ImGuiTreeNodeFlags_DefaultOpen))
+            {
+                if (ImGui::BeginCombo("Animation", animatorComponent.m_AnimationSystem->GetAnimationController()->GetAnimation(animatorComponent.m_AnimationSystem->GetCurrentAnimationIndex())->GetName().c_str()))
+                {
+                    for (auto& [name, animation] : animatorComponent.m_AnimationSystem->GetAnimationController()->GetAnimationMap())
+                    {
+                        if (ImGui::Selectable(name.c_str()))
+                        {
+                            animatorComponent.m_AnimationSystem->SetCurrentAnimation(name);
+                        }
+                    }
+                    ImGui::EndCombo();
+                }
+            }
+        }
         
         if (entity.HasComponent<ScriptComponent>())
         {
