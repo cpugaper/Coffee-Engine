@@ -55,6 +55,7 @@ namespace Coffee {
         unsigned int m_CurrentAnimation = 0;
         unsigned int m_NextAnimation = 0;
         float m_AnimationTime = 0.f;
+        float m_NextAnimationTime = 0.f;
         float m_BlendTime = 0.f;
         float m_BlendDuration = 0.25f;
         bool m_IsBlending = false;

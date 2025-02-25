@@ -20,6 +20,7 @@ namespace Coffee {
             if (m_BlendTime >= m_BlendDuration)
             {
                 m_CurrentAnimation = m_NextAnimation;
+                m_AnimationTime = m_NextAnimationTime;
                 m_IsBlending = false;
             }
 
@@ -79,7 +80,8 @@ namespace Coffee {
         }
     }
 
-    void AnimationSystem::BlendAnimations(float deltaTime, const ozz::animation::Skeleton& skeleton, const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices)
+    void AnimationSystem::BlendAnimations(float deltaTime, const ozz::animation::Skeleton& skeleton,
+                                          const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices)
     {
         Animation* currentAnim = m_AnimationController->GetAnimation(m_CurrentAnimation);
         Animation* nextAnim = m_AnimationController->GetAnimation(m_NextAnimation);
@@ -105,10 +107,16 @@ namespace Coffee {
         std::vector<ozz::math::SoaTransform> localTransforms2(numJoints);
         std::vector<ozz::math::SoaTransform> blendedTransforms(numJoints);
 
+        m_AnimationTime += deltaTime;
+        m_NextAnimationTime += deltaTime;
+
+        float currentTimeRatio = fmod(m_AnimationTime, currentAnimation->duration()) / currentAnimation->duration();
+        float nextTimeRatio = fmod(m_NextAnimationTime, nextAnimation->duration()) / nextAnimation->duration();
+
         ozz::animation::SamplingJob samplingJob1;
         samplingJob1.animation = currentAnimation;
         samplingJob1.context = &m_Context;
-        samplingJob1.ratio = m_AnimationTime / currentAnimation->duration();
+        samplingJob1.ratio = currentTimeRatio;
         samplingJob1.output = ozz::make_span(localTransforms1);
 
         if (!samplingJob1.Run())
@@ -120,7 +128,7 @@ namespace Coffee {
         ozz::animation::SamplingJob samplingJob2;
         samplingJob2.animation = nextAnimation;
         samplingJob2.context = &m_Context;
-        samplingJob2.ratio = m_AnimationTime / nextAnimation->duration();
+        samplingJob2.ratio = nextTimeRatio; // Ahora usa su propio tiempo
         samplingJob2.output = ozz::make_span(localTransforms2);
 
         if (!samplingJob2.Run())
@@ -129,10 +137,13 @@ namespace Coffee {
             return;
         }
 
+        // Configurar pesos de blending
+        float blendFactor = glm::clamp(m_BlendTime / m_BlendDuration, 0.0f, 1.0f);
+
         m_BlendLayers[0].transform = ozz::make_span(localTransforms1);
-        m_BlendLayers[0].weight = 1.0f - (m_BlendTime / m_BlendDuration);
+        m_BlendLayers[0].weight = 1.0f - blendFactor;
         m_BlendLayers[1].transform = ozz::make_span(localTransforms2);
-        m_BlendLayers[1].weight = m_BlendTime / m_BlendDuration;
+        m_BlendLayers[1].weight = blendFactor;
 
         m_BlendJob.rest_pose = ozz::make_span(m_Skeleton->GetSkeleton()->joint_rest_poses());
         m_BlendJob.output = ozz::make_span(blendedTransforms);
