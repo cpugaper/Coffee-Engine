@@ -118,6 +118,7 @@ namespace Coffee {
         samplingJob1.context = &m_Context;
         samplingJob1.ratio = currentTimeRatio;
         samplingJob1.output = ozz::make_span(localTransforms1);
+        
 
         if (!samplingJob1.Run())
         {
@@ -147,6 +148,8 @@ namespace Coffee {
 
         m_BlendJob.rest_pose = ozz::make_span(m_Skeleton->GetSkeleton()->joint_rest_poses());
         m_BlendJob.output = ozz::make_span(blendedTransforms);
+        
+        m_BlendJob.threshold = m_BlendThreshold;
 
         if (!m_BlendJob.Run())
         {

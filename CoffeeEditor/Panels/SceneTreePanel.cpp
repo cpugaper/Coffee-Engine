@@ -567,22 +567,40 @@ namespace Coffee {
         if (entity.HasComponent<AnimatorComponent>())
         {
             auto& animatorComponent = entity.GetComponent<AnimatorComponent>();
+            std::shared_ptr<AnimationSystem> animSystem = animatorComponent.m_AnimationSystem;
+
             bool isCollapsingHeaderOpen = true;
             if (ImGui::CollapsingHeader("Animator", &isCollapsingHeaderOpen, ImGuiTreeNodeFlags_DefaultOpen))
             {
-                const char* animationName = animatorComponent.m_AnimationSystem->GetAnimationController()->GetAnimation(animatorComponent.m_AnimationSystem->GetCurrentAnimationIndex())->GetName().c_str();
+                const char* animationName = animSystem->GetAnimationController()->GetAnimation(animSystem->GetCurrentAnimationIndex())->GetName().c_str();
 
                 if (ImGui::BeginCombo("Animation", animationName))
                 {
-                    for (auto& [name, animation] : animatorComponent.m_AnimationSystem->GetAnimationController()->GetAnimationMap())
+                    for (auto& [name, animation] : animSystem->GetAnimationController()->GetAnimationMap())
                     {
                         if (ImGui::Selectable(name.c_str()) && name != animationName)
                         {
-                            animatorComponent.m_AnimationSystem->SetCurrentAnimation(name);
+                            animSystem->SetCurrentAnimation(name);
                         }
                     }
                     ImGui::EndCombo();
                 }
+
+                float blendDuration = animSystem->GetBlendDuration();
+                float blendThreshold = animSystem->GetBlendThreshold();
+
+                if (ImGui::DragFloat("Blend Duration", &blendDuration, 0.01f, 0.01f, 2.0f, "%.2f"))
+                {
+                    animSystem->SetBlendDuration(blendDuration);
+                }
+
+                if (ImGui::DragFloat("Blend Threshold", &blendThreshold, 0.01f, 0.00f, 1.0f, "%.2f"))
+                {
+                    animSystem->SetBlendThreshold(blendThreshold);
+                }
+
+
+
             }
         }
         

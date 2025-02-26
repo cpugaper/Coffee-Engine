@@ -33,6 +33,14 @@ namespace Coffee {
         Ref<AnimationController> GetAnimationController() const { return m_AnimationController; }
         void SetBoneTransformations(const Ref<Shader>& shader);
 
+
+        //Getters y setters
+        float GetBlendDuration() const { return m_BlendDuration; }
+        void SetBlendDuration(float value) { m_BlendDuration = value; }
+
+        float GetBlendThreshold() const { return m_BlendThreshold; }
+        void SetBlendThreshold(float value) { m_BlendThreshold = value; }
+
     private:
         void SampleAnimation(float deltaTime, const ozz::animation::Animation& animation, const ozz::animation::Skeleton& skeleton, const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices);
         void BlendAnimations(float deltaTime, const ozz::animation::Skeleton& skeleton, const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices);
@@ -58,6 +66,7 @@ namespace Coffee {
         float m_NextAnimationTime = 0.f;
         float m_BlendTime = 0.f;
         float m_BlendDuration = 0.25f;
+        float m_BlendThreshold = 0.8;
         bool m_IsBlending = false;
     };
 }
