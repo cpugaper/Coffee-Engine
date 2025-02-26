@@ -41,6 +41,21 @@ namespace Coffee {
         float GetBlendThreshold() const { return m_BlendThreshold; }
         void SetBlendThreshold(float value) { m_BlendThreshold = value; }
 
+        float GetAnimationSpeed() const { return m_AnimationSpeed; }
+        void SetAnimationSpeed(float speed) { m_AnimationSpeed = speed; }
+
+        
+        bool IsPlaying() const { return m_isPlaying; }
+        void SetPlaying(bool isPlaying) { m_isPlaying = isPlaying; }
+
+        
+        bool IsLooping() const { return m_IsLooping; }
+        void SetLooping(bool isLooping) { m_IsLooping = isLooping; }
+
+        
+        bool IsFinished() const { return m_IsFinished; }
+        void SetFinished(bool isFinished) { m_IsFinished = isFinished; }
+
     private:
         void SampleAnimation(float deltaTime, const ozz::animation::Animation& animation, const ozz::animation::Skeleton& skeleton, const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices);
         void BlendAnimations(float deltaTime, const ozz::animation::Skeleton& skeleton, const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices);
@@ -68,5 +83,12 @@ namespace Coffee {
         float m_BlendDuration = 0.25f;
         float m_BlendThreshold = 0.8;
         bool m_IsBlending = false;
+
+        float m_AnimationSpeed = 1.0f;
+        bool m_isPlaying = true;
+        bool m_IsLooping = true;
+        bool m_IsFinished = false;
+
+
     };
 }

@@ -588,6 +588,10 @@ namespace Coffee {
 
                 float blendDuration = animSystem->GetBlendDuration();
                 float blendThreshold = animSystem->GetBlendThreshold();
+                float animationSpeed = animSystem->GetAnimationSpeed();
+                bool isPlaying = animSystem->IsPlaying();
+                bool isLooping = animSystem->IsLooping();
+                bool isFinished = animSystem->IsFinished();
 
                 if (ImGui::DragFloat("Blend Duration", &blendDuration, 0.01f, 0.01f, 2.0f, "%.2f"))
                 {
@@ -597,6 +601,26 @@ namespace Coffee {
                 if (ImGui::DragFloat("Blend Threshold", &blendThreshold, 0.01f, 0.00f, 1.0f, "%.2f"))
                 {
                     animSystem->SetBlendThreshold(blendThreshold);
+                }
+
+                if (ImGui::DragFloat("Animation Speed", &animationSpeed, 0.01f, 0.1f, 5.0f, "%.2f"))
+                {
+                    animSystem->SetAnimationSpeed(animationSpeed);
+                }
+
+                if (ImGui::Checkbox("Is Playing", &isPlaying))
+                {
+                    animSystem->SetPlaying(isPlaying);
+                }
+
+                if (ImGui::Checkbox("Is Looping", &isLooping))
+                {
+                    animSystem->SetLooping(isLooping);
+                }
+
+                if (ImGui::Checkbox("Is Finished", &isFinished))
+                {
+                    animSystem->SetFinished(isFinished);
                 }
 
 

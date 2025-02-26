@@ -15,7 +15,7 @@ namespace Coffee {
 
         if (m_IsBlending)
         {
-            m_BlendTime += deltaTime;
+            m_BlendTime += deltaTime * m_AnimationSpeed;
 
             if (m_BlendTime >= m_BlendDuration)
             {
@@ -41,7 +41,7 @@ namespace Coffee {
 
     void AnimationSystem::SampleAnimation(float deltaTime, const ozz::animation::Animation& animation, const ozz::animation::Skeleton& skeleton, const std::vector<Joint>& joints, std::vector<glm::mat4>& jointMatrices)
     {
-        m_AnimationTime += deltaTime;
+        m_AnimationTime += deltaTime * m_AnimationSpeed;
         if (m_AnimationTime > animation.duration())
             m_AnimationTime = std::fmod(m_AnimationTime, animation.duration());
 
@@ -107,8 +107,8 @@ namespace Coffee {
         std::vector<ozz::math::SoaTransform> localTransforms2(numJoints);
         std::vector<ozz::math::SoaTransform> blendedTransforms(numJoints);
 
-        m_AnimationTime += deltaTime;
-        m_NextAnimationTime += deltaTime;
+        m_AnimationTime += deltaTime * m_AnimationSpeed;
+        m_NextAnimationTime += deltaTime * m_AnimationSpeed;
 
         float currentTimeRatio = fmod(m_AnimationTime, currentAnimation->duration()) / currentAnimation->duration();
         float nextTimeRatio = fmod(m_NextAnimationTime, nextAnimation->duration()) / nextAnimation->duration();
