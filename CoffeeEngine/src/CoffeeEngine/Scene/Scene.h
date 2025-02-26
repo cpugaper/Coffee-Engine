@@ -18,6 +18,7 @@ namespace Coffee {
      * @{
      */
 
+    class AnimatorComponent;
     class Entity;
     class Model;
 
@@ -130,7 +131,7 @@ namespace Coffee {
      * @param scene The scene.
      * @param model The model to add.
      */
-    void AddModelToTheSceneTree(Scene* scene, Ref<Model> model);
+    void AddModelToTheSceneTree(Scene* scene, Ref<Model> model, AnimatorComponent* animatorComponent = nullptr);
 
     /** @} */ // end of scene group
 }

@@ -26,6 +26,7 @@ namespace Coffee {
         Ref<Mesh> mesh;
         Ref<Material> material;
         uint32_t entityID;
+        Ref<AnimationSystem> animation;
     };
 
     /**
@@ -195,10 +196,6 @@ namespace Coffee {
     private:
 
         static void ResizeFramebuffers();
-
-    public:
-        // TEMPORAL - Animation
-        static Ref<AnimationSystem> m_AnimationSystem;
 
     private:
         static RendererData s_RendererData; ///< Renderer data.

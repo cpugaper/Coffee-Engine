@@ -153,6 +153,18 @@ namespace Coffee {
     };
 
     /**
+     * @brief Component representing an animator.
+     * @ingroup scene
+     */
+    class AnimatorComponent {
+    public:
+        AnimatorComponent(const std::shared_ptr<AnimationSystem>& animationSystem)
+            : m_AnimationSystem(animationSystem) {}
+
+        std::shared_ptr<AnimationSystem> m_AnimationSystem; ///< The animation system.
+    };
+
+    /**
      * @brief Component representing a mesh.
      * @ingroup scene
      */
@@ -160,6 +172,8 @@ namespace Coffee {
     {
         Ref<Mesh> mesh; ///< The mesh reference.
         bool drawAABB = false; ///< Flag to draw the axis-aligned bounding box (AABB).
+
+        AnimatorComponent* animator = nullptr; ///< The animator component.
 
         MeshComponent()
         {
@@ -317,13 +331,6 @@ namespace Coffee {
 
     };
 
-    class AnimatorComponent {
-    public:
-        AnimatorComponent(const std::shared_ptr<AnimationSystem>& animationSystem)
-            : m_AnimationSystem(animationSystem) {}
-
-        std::shared_ptr<AnimationSystem> m_AnimationSystem;
-    };
 }
 
 /** @} */
