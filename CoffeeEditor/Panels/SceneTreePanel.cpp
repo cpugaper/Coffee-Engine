@@ -567,7 +567,7 @@ namespace Coffee {
         if (entity.HasComponent<AnimatorComponent>())
         {
             auto& animatorComponent = entity.GetComponent<AnimatorComponent>();
-            std::shared_ptr<AnimationSystem> animSystem = animatorComponent.m_AnimationSystem;
+            std::shared_ptr<AnimationSystem> animSystem = animatorComponent.GetAnimationSystem();
 
             bool isCollapsingHeaderOpen = true;
             if (ImGui::CollapsingHeader("Animator", &isCollapsingHeaderOpen, ImGuiTreeNodeFlags_DefaultOpen))
