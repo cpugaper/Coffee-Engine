@@ -26,9 +26,9 @@
 #include "CoffeeEngine/Physics/Collider.h"
 
 #define GLM_ENABLE_EXPERIMENTAL
-#include <glm/gtx/quaternion.hpp>
+#include <CoffeeEngine/Physics/CollisionCallback.h>
 #include <glm/gtx/matrix_decompose.hpp>
-
+#include <glm/gtx/quaternion.hpp>
 
 namespace Coffee {
     /**
@@ -321,6 +321,7 @@ namespace Coffee {
 
     struct RigidbodyComponent {
         Ref<Rigidbody> rb;
+        CollisionCallback callback;
 
         RigidbodyComponent() = default;
         RigidbodyComponent(const RigidbodyComponent&) = default;
