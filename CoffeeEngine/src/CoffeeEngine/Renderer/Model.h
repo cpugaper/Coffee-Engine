@@ -1,16 +1,17 @@
 #pragma once
 
 #include "CoffeeEngine/Core/Base.h"
+#include "CoffeeEngine/IO/ImportData/ModelImportData.h"
+#include "CoffeeEngine/IO/ResourceLoader.h"
+#include "CoffeeEngine/IO/Serialization/GLMSerialization.h"
 #include "CoffeeEngine/Renderer/Material.h"
 #include "CoffeeEngine/Renderer/Mesh.h"
 #include "CoffeeEngine/Renderer/Texture.h"
 #include "CoffeeEngine/Scene/Scene.h"
-#include "CoffeeEngine/IO/ResourceLoader.h"
-#include "CoffeeEngine/IO/Serialization/GLMSerialization.h"
 #include <assimp/scene.h>
 #include <cereal/access.hpp>
-#include <cereal/types/polymorphic.hpp>
 #include <cereal/archives/binary.hpp>
+#include <cereal/types/polymorphic.hpp>
 #include <cereal/types/vector.hpp>
 #include <filesystem>
 #include <glm/fwd.hpp>
@@ -42,6 +43,8 @@ namespace Coffee {
          * @param filePath The file path to the model.
          */
         Model(const std::filesystem::path& path);
+
+        Model(ModelImportData& importData);
 
         /**
          * @brief Gets the meshes of the model.
