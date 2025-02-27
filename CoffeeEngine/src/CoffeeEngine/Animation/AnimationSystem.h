@@ -13,7 +13,7 @@
 
 namespace Coffee {
 
-    class AnimationSystem
+    class AnimationSystem : public Resource
     {
     public:
         AnimationSystem();
@@ -69,6 +69,53 @@ namespace Coffee {
         }
 
     private:
+        friend class cereal::access;
+
+        template <class Archive> void save(Archive& archive) const
+        {
+            
+            //UUID materialUUID = m_Material->GetUUID();
+            //Skeleton, AnimationController
+            //A lo mejor no, context, layer, blendingJob
+
+
+            //archive(m_Vertices, m_Indices, m_AABB, materialUUID, cereal::base_class<Resource>(this));
+            archive(m_CurrentAnimation, m_NextAnimation, m_AnimationTime, m_NextAnimationTime, m_BlendTime, m_BlendDuration, m_BlendThreshold, m_IsBlending, m_AnimationSpeed, m_isPlaying, m_IsLooping, m_IsFinished, m_Skeleton, m_AnimationController, cereal::base_class<Resource>(this));
+        }
+
+        template <class Archive> void load(Archive& archive)
+        {
+            //UUID materialUUID;
+            // 
+            // archive(m_Vertices, m_Indices, m_AABB, materialUUID, cereal::base_class<Resource>(this));
+            // 
+            //m_Material = ResourceLoader::LoadMaterial(materialUUID);
+            //Cargar skeleton, animation controller
+            //A lo mejor no, context, layer, blendingJob
+
+             archive(m_CurrentAnimation, m_NextAnimation, m_AnimationTime, m_NextAnimationTime, m_BlendTime,
+                    m_BlendDuration, m_BlendThreshold, m_IsBlending, m_AnimationSpeed, m_isPlaying, m_IsLooping,
+                    m_IsFinished, m_Skeleton, m_AnimationController, cereal::base_class<Resource>(this));
+
+            
+        }
+
+        template <class Archive> static void load_and_construct(Archive& data, cereal::construct<AnimationSystem>& construct)
+        {
+            
+            construct();
+
+            
+            data(construct->m_CurrentAnimation, construct->m_NextAnimation, construct->m_AnimationTime,
+                 construct->m_NextAnimationTime, construct->m_BlendTime, construct->m_BlendDuration,
+                 construct->m_BlendThreshold, construct->m_IsBlending, construct->m_AnimationSpeed,
+                 construct->m_isPlaying, construct->m_IsLooping, construct->m_IsFinished, construct->m_Skeleton,
+                 construct->m_AnimationController,
+                 cereal::base_class<Resource>(construct.ptr()));
+        }
+
+
+    private:
         GLuint boneMatricesUBO;
         Ref<Skeleton> m_Skeleton;
         Ref<AnimationController> m_AnimationController;
@@ -91,4 +138,6 @@ namespace Coffee {
 
 
     };
-}
+} // namespace Coffee
+CEREAL_REGISTER_TYPE(Coffee::AnimationSystem);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Coffee::Resource, Coffee::AnimationSystem);

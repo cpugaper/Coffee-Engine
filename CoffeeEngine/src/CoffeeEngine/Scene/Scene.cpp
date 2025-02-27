@@ -342,7 +342,8 @@ namespace Coffee {
             .get<CameraComponent>(archive)
             .get<MeshComponent>(archive)
             .get<MaterialComponent>(archive)
-            .get<LightComponent>(archive);
+            .get<LightComponent>(archive)
+            /*.get<AnimatorComponent>(archive)*/;  //<-- ANIMACION - Descomentar para serializar las animaciones
         
         scene->m_FilePath = path;
 
@@ -376,7 +377,8 @@ namespace Coffee {
             .get<CameraComponent>(archive)
             .get<MeshComponent>(archive)
             .get<MaterialComponent>(archive)
-            .get<LightComponent>(archive);
+            .get<LightComponent>(archive)
+            /*.get<AnimatorComponent>(archive)*/; //<--  ANIMACION - Descomentar para serializar las animaciones
         
         scene->m_FilePath = path;
 

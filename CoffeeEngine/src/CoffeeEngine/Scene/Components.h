@@ -172,6 +172,25 @@ namespace Coffee {
 
       private:
         Ref<AnimationSystem> animationSystem;
+        friend class cereal::access;
+        /**
+         * @brief Serializes the AnimatorComponent.
+         * @tparam Archive The type of the archive.
+         * @param archive The archive to serialize to.
+         */
+        template <class Archive> void save(Archive& archive) const
+        {
+            archive(cereal::make_nvp("animationSystem", animationSystem->GetUUID()));
+        }
+
+        template <class Archive> void load(Archive& archive)
+        {
+            UUID animationSystemUUID;
+            archive(cereal::make_nvp("animationSystem", animationSystemUUID));
+
+            Ref<AnimationSystem> animationSystem = ResourceRegistry::Get<AnimationSystem>(animationSystemUUID);
+            this->animationSystem = animationSystem;
+        }
     };
 
     /**

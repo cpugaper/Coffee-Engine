@@ -4,7 +4,7 @@
 
 namespace Coffee {
 
-    AnimationSystem::AnimationSystem()
+    AnimationSystem::AnimationSystem() : Resource(ResourceType::AnimationSystem)
     {
         m_BlendJob.layers = ozz::make_span(m_BlendLayers);
     }

@@ -401,7 +401,12 @@ namespace Coffee {
             }
 
             ozz::animation::offline::AnimationBuilder animBuilder;
-            animController->AddAnimation(aiAnim->mName.C_Str(), std::move(animBuilder(rawAnimation)));
+            auto anim = animBuilder(rawAnimation); 
+            animController->AddAnimation(
+                aiAnim->mName.C_Str(),
+                std::unique_ptr<ozz::animation::Animation>(anim.release())
+            );
+
         }
 
         if (!m_AnimationSystem)
