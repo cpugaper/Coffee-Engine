@@ -182,6 +182,12 @@ Entities are objects in the scene that can have associated components
         
         Scene.destroy_entity(entity)
 
+.. admonition:: Note
+    :class: note
+
+    If needed to refer to the entity running the script, instead of using "entity:", we use "self:" in the following functions. 
+    For instance, instead of entity:get_component("ComponentName"), use self:get_component("ComponentName") to refer to the entity that contains the script. 
+
 2. Components
     2.1. Entity.add_component(componentName)
     Adds a component to the entity
